@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #1e3a8a;
+    --color-primary-foreground: #ffffff;
+    
+    /* Secondary Colors */
+    --color-secondary: #3b82f6;
+    --color-secondary-foreground: #ffffff;
+    
+    /* Accent Colors */
+    --color-accent: #06b6d4;
+    --color-accent-foreground: #ffffff;
+    
+    /* Background Colors */
+    --color-background: #ffffff;
+    --color-foreground: #1f2937;
+    
+    /* Surface Colors */
+    --color-card: #f8fafc;
+    --color-card-foreground: #1f2937;
+    
+    --color-popover: #ffffff;
+    --color-popover-foreground: #1f2937;
+    
+    /* Muted Colors */
+    --color-muted: #f1f5f9;
+    --color-muted-foreground: #6b7280;
+    
+    /* Border & Input */
+    --color-border: #e5e7eb;
+    --color-input: #e5e7eb;
+    --color-ring: #3b82f6;
+    
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-success-foreground: #ffffff;
+    
+    --color-warning: #f59e0b;
+    --color-warning-foreground: #ffffff;
+    
+    --color-error: #ef4444;
+    --color-error-foreground: #ffffff;
+    
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    
+    /* Brand Colors */
+    --color-brand-primary: #0066FF;
+    --color-brand-primary-foreground: #ffffff;
+    
+    --color-brand-secondary: #6366F1;
+    --color-brand-secondary-foreground: #ffffff;
+    
+    --color-brand-accent: #10B981;
+    --color-brand-accent-foreground: #ffffff;
+    
+    --color-trust-builder: #1E293B;
+    --color-trust-builder-foreground: #ffffff;
+    
+    --color-cta: #DC2626;
+    --color-cta-foreground: #ffffff;
+    
+    /* Typography Colors */
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #64748B;
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .shadow-medium {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .shadow-interactive {
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

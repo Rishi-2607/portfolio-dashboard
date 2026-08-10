@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HomepageInteractive from './homepage/page';
+import HomepageInteractive from './components/HomepageInteractive';
 
 export const metadata: Metadata = {
   title: 'Rishikant - React Developer | UI-Focused Web Engineering Solutions',
