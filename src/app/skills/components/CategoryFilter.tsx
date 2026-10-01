@@ -19,10 +19,10 @@ export default function CategoryFilter({
         <button
           key={category}
           onClick={() => onCategoryChange(category)}
-          className={`px-6 py-2.5 rounded-2xl font-medium text-sm transition-all duration-200 ${
+          className={`px-6 py-2.5 rounded-2xl font-semibold text-sm transition-all duration-200 ${
             activeCategory === category
-              ? 'bg-gradient-to-r from-purple-400 via-pink-500 to-pink-400 text-white shadow-[0_0_15px_rgba(128,90,250,0.5)]'
-              : 'bg-gray-900 text-gray-300 border border-white/10 hover:bg-gray-800 hover:text-white'
+              ? 'bg-[#C1FF72] text-[#090e11] font-bold shadow-lg shadow-[#C1FF72]/20 border border-[#C1FF72]'
+              : 'bg-[#111a1e] text-gray-300 border border-white/10 hover:bg-[#182428] hover:text-white'
           }`}
         >
           {category}

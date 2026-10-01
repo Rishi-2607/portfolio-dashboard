@@ -34,8 +34,8 @@ export default function ServiceCard({
     <div className={`bg-gray-900/70 border border-gray-800 rounded-2xl shadow-soft p-6 sm:p-8 transition-all duration-300 hover:shadow-xl ${className}`}>
       {/* Top Section */}
       <div className="flex items-start gap-5 mb-6">
-        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center shadow-interactive">
-          <Icon name={icon as any} size={30} className="text-white" />
+        <div className="w-16 h-16 rounded-xl bg-[#C1FF72] text-[#090e11] flex items-center justify-center shadow-lg shadow-[#C1FF72]/20">
+          <Icon name={icon as any} size={30} className="text-[#090e11]" />
         </div>
 
         <div className="flex-1">
@@ -46,9 +46,9 @@ export default function ServiceCard({
 
       {/* Timeline + Pricing */}
       <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-gray-800/40 border border-gray-700 rounded-xl p-4">
+        <div className="bg-[#182428] border border-white/10 rounded-xl p-4">
           <div className="flex items-center gap-2 mb-1">
-            <Icon name="ClockIcon" size={18} className="text-purple-400" />
+            <Icon name="ClockIcon" size={18} className="text-[#C1FF72]" />
             <span className="text-xs font-semibold text-white/60 uppercase tracking-wide">
               Timeline
             </span>
@@ -56,9 +56,9 @@ export default function ServiceCard({
           <p className="text-white font-bold">{timeline}</p>
         </div>
 
-        <div className="bg-gray-800/40 border border-gray-700 rounded-xl p-4">
+        <div className="bg-[#182428] border border-white/10 rounded-xl p-4">
           <div className="flex items-center gap-2 mb-1">
-            <Icon name="CurrencyDollarIcon" size={18} className="text-green-400" />
+            <Icon name="CurrencyDollarIcon" size={18} className="text-[#20c997]" />
             <span className="text-xs font-semibold text-white/60 uppercase tracking-wide">
               Pricing
             </span>
@@ -71,8 +71,8 @@ export default function ServiceCard({
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-between px-4 py-3 rounded-xl 
-          bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 
-          transition-all text-purple-300 font-semibold"
+          bg-[#182428] hover:bg-[#C1FF72]/15 border border-[#C1FF72]/30 
+          transition-all text-[#C1FF72] font-semibold"
       >
         <span>View Details</span>
         <Icon
@@ -90,7 +90,7 @@ export default function ServiceCard({
           isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="pt-6 border-t border-gray-800 mt-6">
+        <div className="pt-6 border-t border-white/10 mt-6">
 
           {/* Tabs */}
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
@@ -98,11 +98,11 @@ export default function ServiceCard({
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition 
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition 
                   ${
                     activeTab === tab
-                      ? 'bg-gradient-to-br from-purple-600 to-pink-500 text-white shadow'
-                      : 'bg-gray-800/40 text-white/60 hover:bg-gray-800/60'
+                      ? 'bg-[#C1FF72] text-[#090e11] shadow'
+                      : 'bg-[#182428] text-white/70 hover:bg-[#182428]/80 hover:text-white'
                   }
                 `}
               >
@@ -121,7 +121,7 @@ export default function ServiceCard({
                   <Icon
                     name="CheckCircleIcon"
                     size={20}
-                    className="text-green-400 flex-shrink-0 mt-0.5"
+                    className="text-[#C1FF72] flex-shrink-0 mt-0.5"
                   />
                   <span className="text-white/90 text-sm sm:text-base">
                     {feature}
@@ -139,7 +139,7 @@ export default function ServiceCard({
                   <Icon
                     name="DocumentCheckIcon"
                     size={20}
-                    className="text-pink-400 flex-shrink-0 mt-0.5"
+                    className="text-[#20c997] flex-shrink-0 mt-0.5"
                   />
                   <span className="text-white/90 text-sm sm:text-base">
                     {deliverable}
@@ -154,8 +154,8 @@ export default function ServiceCard({
             <div className="space-y-4">
               {process.map((step, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/40 flex items-center justify-center">
-                    <span className="text-purple-300 font-bold text-sm">
+                  <div className="w-8 h-8 rounded-full bg-[#C1FF72]/15 border border-[#C1FF72]/40 flex items-center justify-center">
+                    <span className="text-[#C1FF72] font-bold text-sm">
                       {i + 1}
                     </span>
                   </div>

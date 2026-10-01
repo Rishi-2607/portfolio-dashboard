@@ -79,11 +79,11 @@ const FAQSection = () => {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden transition-all duration-200 hover:border-purple-500/40"
+            className="bg-[#111a1e] rounded-xl border border-white/10 overflow-hidden transition-all duration-200 hover:border-[#C1FF72]/40"
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full px-6 py-4 flex items-center justify-between text-left transition-colors duration-200 hover:bg-gray-800/50"
+              className="w-full px-6 py-4 flex items-center justify-between text-left transition-colors duration-200 hover:bg-[#182428]/60"
               aria-expanded={openIndex === index}
             >
               <span className="text-base font-semibold text-white pr-4">
@@ -92,7 +92,7 @@ const FAQSection = () => {
               <Icon
                 name="ChevronDownIcon"
                 size={20}
-                className={`text-purple-400 flex-shrink-0 transition-transform duration-200 ${
+                className={`text-[#C1FF72] flex-shrink-0 transition-transform duration-200 ${
                   openIndex === index ? 'rotate-180' : ''
                 }`}
               />
@@ -112,12 +112,12 @@ const FAQSection = () => {
         ))}
       </div>
 
-      <div className="p-6 rounded-lg bg-gradient-to-br from-purple-900/10 to-pink-900/10 border border-purple-500/20">
+      <div className="p-6 rounded-xl bg-[#182428] border border-[#C1FF72]/30">
         <div className="flex items-start space-x-3">
           <Icon
             name="QuestionMarkCircleIcon"
             size={24}
-            className="text-purple-400 flex-shrink-0 mt-1"
+            className="text-[#C1FF72] flex-shrink-0 mt-1"
           />
           <div>
             <h4 className="text-base font-semibold text-white mb-2">
@@ -129,8 +129,8 @@ const FAQSection = () => {
               work together.
             </p>
             <a
-              href="mailto:rishikant.dev@example.com"
-              className="inline-flex items-center space-x-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors duration-200"
+              href="mailto:rishikyadav2607@gmail.com"
+              className="inline-flex items-center space-x-2 text-sm font-semibold text-[#C1FF72] hover:text-[#daffaa] transition-colors duration-200"
             >
               <span>Ask Your Question</span>
               <Icon name="ArrowRightIcon" size={16} />

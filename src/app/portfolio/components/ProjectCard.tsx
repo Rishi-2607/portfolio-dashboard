@@ -28,9 +28,9 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
     <div
       className="
         group relative rounded-2xl overflow-hidden 
-        bg-gradient-to-b from-gray-900 via-gray-950 to-black
+        bg-[#111a1e]
         border border-white/10 shadow-[0_0_25px_rgba(0,0,0,0.4)]
-        transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]
+        transition-all duration-300 hover:border-[#C1FF72]/40 hover:shadow-[0_0_35px_rgba(193,255,114,0.18)]
         hover:-translate-y-1
       "
       onMouseEnter={() => setIsHovered(true)}
@@ -40,9 +40,9 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
       {project.featured && (
         <div className="
           absolute top-4 right-4 z-20 
-          bg-gradient-to-r from-purple-600 to-pink-500
-          text-white px-3 py-1 rounded-full
-          text-xs font-semibold shadow-lg
+          bg-[#C1FF72] text-[#090e11]
+          px-3 py-1 rounded-full
+          text-xs font-bold shadow-lg
         ">
           Featured
         </div>
@@ -76,9 +76,9 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
                 onClick={(e) => e.stopPropagation()}
                 className="
                   flex-1 flex items-center justify-center gap-2
-                  bg-gradient-to-r from-purple-600 to-pink-500 
-                  text-white px-4 py-2 rounded-lg font-semibold
-                  shadow-lg hover:scale-[1.02]
+                  bg-[#C1FF72] hover:bg-[#d4ff8f]
+                  text-[#090e11] px-4 py-2 rounded-lg font-bold
+                  shadow-lg shadow-[#C1FF72]/20 hover:scale-[1.02]
                   transition-all duration-200
                 "
               >
@@ -116,8 +116,8 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
           <div className="flex-1">
             <span className="
               inline-block px-3 py-1 rounded-full mb-2
-              bg-purple-600/20 text-purple-400 
-              border border-purple-500/30
+              bg-[#C1FF72]/15 text-[#C1FF72] 
+              border border-[#C1FF72]/30
               text-xs font-semibold tracking-wide
             ">
               {project.category}
@@ -125,7 +125,7 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
 
             <h3 className="
               text-xl font-bold text-white 
-              group-hover:text-purple-400
+              group-hover:text-[#C1FF72]
               transition-colors duration-200
             ">
               {project.title}
@@ -134,7 +134,7 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
         </div>
 
         {/* DESCRIPTION */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className="text-gray-300/80 text-sm leading-relaxed mb-4 line-clamp-2">
           {project.description}
         </p>
 
@@ -167,7 +167,7 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
         ">
           {project.metrics.map((metric, i) => (
             <div key={i} className="text-center">
-              <div className="text-purple-400 font-bold text-lg">
+              <div className="text-[#C1FF72] font-bold text-lg">
                 {metric.value}
               </div>
               <div className="text-gray-400 text-xs">{metric.label}</div>
@@ -180,9 +180,11 @@ export default function ProjectCard({ project, onViewDetails }: ProjectCardProps
           onClick={() => onViewDetails(project.id)}
           className="
             w-full flex items-center justify-center gap-2
-            bg-gradient-to-r from-purple-600 to-pink-500
-            text-white px-4 py-2.5 rounded-lg font-semibold
-            shadow-lg hover:scale-[1.02]
+            bg-[#182428] hover:bg-[#C1FF72]
+            text-white hover:text-[#090e11]
+            border border-white/15 hover:border-[#C1FF72]
+            px-4 py-2.5 rounded-lg font-bold
+            shadow-md hover:shadow-[#C1FF72]/20 hover:scale-[1.01]
             transition-all duration-200
           "
         >

@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import FilterBar from './FilterBar';
 import ProjectModal from './ProjectModal';
 import StatsSection from './StatsSection';
 import Icon from '@/components/ui/AppIcon';
-
 
 interface Project {
   id: number;
@@ -39,268 +39,277 @@ interface Project {
 }
 
 const mockProjects: Project[] = [
-{
-  id: 1,
-  title: "E-Commerce Platform Redesign",
-  category: "E-Commerce",
-  technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Redux"],
-  description: "Complete redesign and development of a modern e-commerce platform with enhanced user experience and performance optimization.",
-  fullDescription: "Led the complete redesign and development of a high-traffic e-commerce platform serving over 50,000 monthly active users. The project involved migrating from a legacy PHP system to a modern React-based architecture, implementing advanced features like real-time inventory management, personalized product recommendations, and seamless checkout experience.",
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_14f3713c3-1764410570343.png",
-  alt: "Modern e-commerce website interface showing product grid with shopping cart and checkout flow on desktop screen",
-  additionalImages: [
   {
-    url: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3",
-    alt: "Dashboard analytics showing sales graphs and user metrics on laptop screen"
+    id: 1,
+    title: "Full-Stack Blog Platform",
+    category: "Next.js",
+    technologies: ["Next.js", "Node.js", "MongoDB", "Axios", "Tailwind CSS"],
+    description: "SEO-optimized blog platform with email subscriptions, admin controls, and modular RESTful APIs.",
+    fullDescription: "Built a production-ready blog platform featuring server-side rendering for optimal search engine ranking, optimized image loading, and responsive design. Implemented secure email subscription flows with real-time feedback, admin dashboard controls, and modular REST API endpoints deployed on Render with MongoDB Atlas.",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643",
+    alt: "Full-Stack Blog Platform interface showing article reader, admin controls and subscriber metrics",
+    additionalImages: [
+      {
+        url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+        alt: "Admin analytics dashboard showing content readership and subscriber growth"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+        alt: "Clean Next.js SSR architecture and modular REST API code"
+      }
+    ],
+    challenge: "Building a high-performance content platform with rapid server-side rendering, instant SEO discoverability, automated email delivery for new posts, and reliable cloud database persistence.",
+    solution: "Engineered SSR architecture using Next.js and Axios with MongoDB Atlas for scalable document storage. Created real-time subscription feedback loops, modular REST endpoints for CRUD operations, and deployed environment-based configurations on Render.",
+    results: [
+      "Achieved sub-second page rendering using Next.js server-side rendering (SSR)",
+      "Implemented real-time email subscriptions with instant feedback notifications",
+      "Designed responsive admin dashboard with role-controlled publishing workflows",
+      "Deployed on Render with environment-based configuration and MongoDB Atlas"
+    ],
+    metrics: [
+      { label: "Deployment", value: "Render" },
+      { label: "Database", value: "Atlas" },
+      { label: "Rendering", value: "SSR/SEO" },
+      { label: "Stack", value: "Next.js" }
+    ],
+    testimonial: {
+      text: "Built a production-ready blog platform with Next.js, MongoDB Atlas, and Axios, featuring server-side rendering for SEO, optimized image loading, and a fully responsive UI.",
+      author: "Rishikant Yadav",
+      role: "Full-Stack Developer",
+      company: "Render + MongoDB Atlas"
+    },
+    demoUrl: "https://github.com/Rishi-2607",
+    githubUrl: "https://github.com/Rishi-2607",
+    featured: true,
+    duration: "Jul 2025",
+    team: "Solo Full-Stack Developer"
   },
   {
-    url: "https://img.rocket.new/generatedImages/rocket_gen_img_11cc99a9b-1764410571204.png",
-    alt: "Mobile responsive e-commerce app showing product details and add to cart button"
-  }],
-
-  challenge: "The client's existing platform suffered from slow load times (8+ seconds), poor mobile experience, and a 68% cart abandonment rate. The legacy codebase made it difficult to implement new features and maintain consistency across the user journey.",
-  solution: "Implemented a modern React-based architecture with Next.js for server-side rendering and optimal performance. Created a component-based design system ensuring consistency, integrated Stripe for secure payments, and implemented advanced caching strategies. Added real-time inventory updates and personalized product recommendations using machine learning algorithms.",
-  results: [
-  "Reduced page load time from 8.2 seconds to 1.4 seconds (83% improvement)",
-  "Decreased cart abandonment rate from 68% to 32% (53% reduction)",
-  "Increased mobile conversion rate by 145% through responsive design optimization",
-  "Improved SEO rankings resulting in 220% increase in organic traffic",
-  "Enhanced user engagement with 4.2x increase in average session duration"],
-
-  metrics: [
-  { label: "Load Time", value: "1.4s" },
-  { label: "Conversion", value: "+145%" },
-  { label: "Traffic", value: "+220%" },
-  { label: "Revenue", value: "+180%" }],
-
-  testimonial: {
-    text: "Rishikant transformed our outdated platform into a modern, high-performing e-commerce solution. The results exceeded our expectations, and our customers love the new experience. Sales have increased by 180% since launch.",
-    author: "Sarah Mitchell",
-    role: "CEO",
-    company: "TechStyle Fashion"
-  },
-  demoUrl: "https://example.com/demo",
-  githubUrl: "https://github.com/example/project",
-  featured: true,
-  duration: "4 months",
-  team: "Solo Developer"
-},
-{
-  id: 2,
-  title: "Healthcare Patient Portal",
-  category: "Healthcare",
-  technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Socket.io", "Chart.js"],
-  description: "Secure patient portal with real-time appointment scheduling, medical records access, and telemedicine integration.",
-  fullDescription: "Developed a comprehensive healthcare patient portal that enables patients to manage their healthcare journey digitally. The platform includes secure medical record access, real-time appointment scheduling, prescription management, and integrated telemedicine capabilities with video consultations.",
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_173156139-1764410573133.png",
-  alt: "Healthcare dashboard interface showing patient medical records and appointment calendar on tablet device",
-  additionalImages: [
-  {
-    url: "https://img.rocket.new/generatedImages/rocket_gen_img_1ba32894d-1764410578543.png",
-    alt: "Doctor using telemedicine video call interface on laptop with patient consultation screen"
-  },
-  {
-    url: "https://img.rocket.new/generatedImages/rocket_gen_img_1038a1d36-1764410569013.png",
-    alt: "Mobile app showing prescription refill interface with medication list and pharmacy selection"
-  }],
-
-  challenge: "Healthcare providers needed a HIPAA-compliant solution that would reduce administrative burden while improving patient engagement. The existing system had no mobile access, required phone calls for appointments, and lacked integration with electronic health records.",
-  solution: "Built a secure, HIPAA-compliant patient portal with end-to-end encryption and multi-factor authentication. Implemented real-time appointment scheduling with automated reminders, integrated EHR systems for seamless medical record access, and developed a telemedicine module with HD video consultations. Created an intuitive mobile-first interface ensuring accessibility for all age groups.",
-  results: [
-  "Reduced appointment no-shows by 67% through automated SMS and email reminders",
-  "Decreased administrative phone calls by 82% with self-service features",
-  "Achieved 94% patient satisfaction score in post-implementation survey",
-  "Enabled 15,000+ successful telemedicine consultations in first 6 months",
-  "Improved prescription refill efficiency by 78% with digital workflow"],
-
-  metrics: [
-  { label: "No-Shows", value: "-67%" },
-  { label: "Admin Calls", value: "-82%" },
-  { label: "Satisfaction", value: "94%" },
-  { label: "Consultations", value: "15K+" }],
-
-  testimonial: {
-    text: "This portal has revolutionized how we interact with our patients. The telemedicine integration has been particularly valuable, and our staff can now focus on patient care instead of administrative tasks.",
-    author: "Dr. Michael Chen",
-    role: "Medical Director",
-    company: "HealthFirst Medical Group"
-  },
-  demoUrl: "https://example.com/demo",
-  featured: true,
-  duration: "6 months",
-  team: "Lead Developer in team of 3"
-},
-{
-  id: 3,
-  title: "Real Estate Listing Platform",
-  category: "Real Estate",
-  technologies: ["React", "Next.js", "Mapbox", "Firebase", "Algolia", "Framer Motion"],
-  description: "Interactive real estate platform with advanced search, virtual tours, and real-time property availability.",
-  fullDescription: "Created a modern real estate listing platform that revolutionizes property search and discovery. Features include interactive map-based search, 360° virtual tours, advanced filtering with 20+ criteria, real-time availability updates, and AI-powered property recommendations based on user preferences and behavior.",
-  image: "https://images.unsplash.com/photo-1620086385485-d0bd6daa815c",
-  alt: "Luxury modern living room interior with floor-to-ceiling windows showing city skyline view",
-  additionalImages: [
-  {
-    url: "https://images.unsplash.com/photo-1722604817803-4c88edef9bc0",
-    alt: "Contemporary kitchen with white cabinets, marble countertops and stainless steel appliances"
+    id: 2,
+    title: "Real-Time Chat Application",
+    category: "Real-Time",
+    technologies: ["React.js", "Node.js", "Express.js", "Socket.io", "MongoDB"],
+    description: "End-to-end real-time bidirectional messaging application with JWT auth, WebSockets, and active user tracking.",
+    fullDescription: "Engineered an instant messaging application using Socket.io for low-latency bidirectional communication with active presence tracking. Secured the platform with JWT-based authentication, bcrypt password hashing, and protected endpoints, backed by Express.js and MongoDB Atlas with a clean, mobile-responsive Vite + Tailwind frontend.",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe",
+    alt: "Real-time chat application interface showing active chat rooms, online user statuses, and instant message feeds",
+    additionalImages: [
+      {
+        url: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624",
+        alt: "Messaging threads with instant delivery receipts and active user indicators"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+        alt: "JWT authentication and bcrypt encrypted credential pipeline"
+      }
+    ],
+    challenge: "Minimizing message latency across concurrent users while securing auth tokens, preventing unauthorized socket room access, and guaranteeing responsive mobile layouts.",
+    solution: "Implemented Socket.io event-driven WebSocket channels for immediate bidirectional transmission. Paired with stateless JWT authorization guards and bcrypt hashing on Express.js to keep all socket channels and REST endpoints completely secure.",
+    results: [
+      "Delivered instant message delivery with zero perceptible delay using Socket.io",
+      "Secured all endpoints with JWT token validation and salted bcrypt credential hashing",
+      "Built mobile-first reactive chat interface utilizing React.js, Vite, and Tailwind CSS",
+      "Supported real-time online/offline presence tracking and conversation channels"
+    ],
+    metrics: [
+      { label: "Latency", value: "<50ms" },
+      { label: "Auth", value: "JWT/Bcrypt" },
+      { label: "Protocol", value: "WebSockets" },
+      { label: "Frontend", value: "Vite+React" }
+    ],
+    testimonial: {
+      text: "Engineered real-time bidirectional communication using Socket.io with instant message delivery and active user tracking, backed by Express.js and MongoDB Atlas.",
+      author: "Rishikant Yadav",
+      role: "Full-Stack Developer",
+      company: "Socket.io + MERN"
+    },
+    demoUrl: "https://github.com/Rishi-2607",
+    githubUrl: "https://github.com/Rishi-2607",
+    featured: true,
+    duration: "Apr 2025",
+    team: "Solo Full-Stack Developer"
   },
   {
-    url: "https://images.unsplash.com/photo-1613013115889-d6350ec296e5",
-    alt: "Spacious bedroom with king-size bed, wooden flooring and large windows with natural lighting"
-  }],
-
-  challenge: "Real estate agents struggled with outdated listing platforms that provided poor user experience and limited search capabilities. Buyers found it difficult to discover properties matching their specific needs, and the lack of virtual tour options meant unnecessary physical visits.",
-  solution: "Developed an intuitive platform with Mapbox integration for interactive map-based property search. Implemented Algolia for lightning-fast search with 20+ filter criteria including price range, property type, amenities, and neighborhood features. Created immersive 360° virtual tour functionality and integrated AI-powered recommendations that learn from user behavior to suggest relevant properties.",
-  results: [
-  "Increased property inquiries by 340% through improved search and discovery",
-  "Reduced unnecessary property visits by 58% with virtual tour feature",
-  "Achieved 2.3 million page views in first 3 months after launch",
-  "Improved agent productivity by 125% with automated lead qualification",
-  "Generated 4.8/5 average user rating with 12,000+ reviews"],
-
-  metrics: [
-  { label: "Inquiries", value: "+340%" },
-  { label: "Page Views", value: "2.3M" },
-  { label: "User Rating", value: "4.8/5" },
-  { label: "Efficiency", value: "+125%" }],
-
-  testimonial: {
-    text: "The platform has completely transformed our business. The virtual tours and AI recommendations have made property discovery so much easier for our clients, and we're closing deals faster than ever.",
-    author: "Jennifer Rodriguez",
-    role: "Senior Real Estate Broker",
-    company: "Premier Properties Group"
-  },
-  demoUrl: "https://example.com/demo",
-  githubUrl: "https://github.com/example/project",
-  featured: true,
-  duration: "5 months",
-  team: "Solo Developer"
-},
-{
-  id: 4,
-  title: "SaaS Analytics Dashboard",
-  category: "SaaS",
-  technologies: ["React", "TypeScript", "D3.js", "Recharts", "WebSocket", "Redis"],
-  description: "Real-time analytics dashboard for SaaS businesses with customizable widgets and advanced data visualization.",
-  fullDescription: "Built a comprehensive analytics dashboard for SaaS companies to track key metrics, user behavior, and business performance in real-time. Features include customizable widget layouts, interactive data visualizations, automated report generation, and predictive analytics powered by machine learning algorithms.",
-  image: "https://images.unsplash.com/photo-1724833256463-26b199dc1b69",
-  alt: "Business analytics dashboard displaying colorful charts, graphs and KPI metrics on large monitor",
-  additionalImages: [
-  {
-    url: "https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0",
-    alt: "Data visualization showing revenue growth trends and user engagement metrics on laptop screen"
-  },
-  {
-    url: "https://img.rocket.new/generatedImages/rocket_gen_img_1bbc6948a-1764410568885.png",
-    alt: "Real-time dashboard with multiple widgets showing sales funnel and conversion rates"
-  }],
-
-  challenge: "SaaS companies were using multiple disconnected tools to track different metrics, resulting in fragmented insights and delayed decision-making. Existing solutions lacked real-time capabilities and couldn't handle the volume of data generated by growing user bases.",
-  solution: "Created a unified analytics platform with WebSocket integration for real-time data updates. Implemented a flexible widget system allowing users to customize their dashboard layout and metrics. Built advanced visualizations using D3.js and Recharts for complex data representation. Integrated Redis for high-performance caching and implemented predictive analytics to forecast trends and identify potential issues before they impact business.",
-  results: [
-  "Reduced data analysis time by 75% with unified dashboard approach",
-  "Enabled real-time monitoring of 50+ key performance indicators",
-  "Improved decision-making speed by 60% with instant insights",
-  "Processed 10 million+ data points daily with sub-second latency",
-  "Achieved 99.9% uptime with robust error handling and monitoring"],
-
-  metrics: [
-  { label: "Analysis Time", value: "-75%" },
-  { label: "KPIs Tracked", value: "50+" },
-  { label: "Data Points", value: "10M+" },
-  { label: "Uptime", value: "99.9%" }],
-
-  demoUrl: "https://example.com/demo",
-  featured: false,
-  duration: "4 months",
-  team: "Lead Developer in team of 2"
-},
-{
-  id: 5,
-  title: "Educational Learning Platform",
-  category: "Education",
-  technologies: ["React", "Next.js", "MongoDB", "AWS", "WebRTC", "TensorFlow.js"],
-  description: "Interactive online learning platform with live classes, progress tracking, and AI-powered personalized learning paths.",
-  fullDescription: "Developed a comprehensive educational platform that combines live interactive classes with self-paced learning. Features include HD video streaming, real-time collaboration tools, AI-powered content recommendations, progress tracking with detailed analytics, and gamification elements to boost student engagement and retention.",
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1b1645a52-1764410570480.png",
-  alt: "Student using laptop for online learning with video lecture and digital notes on screen",
-  additionalImages: [
-  {
-    url: "https://img.rocket.new/generatedImages/rocket_gen_img_182d0974f-1764410572260.png",
-    alt: "Interactive whiteboard showing math equations during live online class session"
+    id: 3,
+    title: "Healthcare Management System",
+    category: "MERN Stack",
+    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    description: "Full-stack healthcare management application with role-based access control, secure authentication, and data dashboards.",
+    fullDescription: "Designed and deployed a full-stack healthcare application with role-based access control (RBAC), secure user authentication, patient records management, and clinical data dashboards. Implemented an accessible mobile-first UI using Tailwind CSS for streamlined healthcare provider and patient workflows.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
+    alt: "Healthcare management system dashboard showing patient records, clinical schedules and role-based permissions",
+    additionalImages: [
+      {
+        url: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3",
+        alt: "Health data metrics and appointment status analytics"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1584982751601-97dcc096659c",
+        alt: "Clinical records management view with role-based permissions"
+      }
+    ],
+    challenge: "Organizing sensitive healthcare records across distinct roles (doctors, administrators, patients) while preserving strict authorization boundaries and high mobile accessibility.",
+    solution: "Implemented granular role-based access control (RBAC) middleware in Node.js and Express. Structured MongoDB collections for patient history and schedules, paired with an accessible, mobile-first Tailwind CSS UI.",
+    results: [
+      "Implemented role-based access control ensuring doctors and patients only access authorized data",
+      "Delivered clean, mobile-first responsive dashboards optimized for handheld devices",
+      "Integrated secure session management and encrypted medical credential storage",
+      "Significantly reduced manual paperwork overhead through centralized digital records"
+    ],
+    metrics: [
+      { label: "Security", value: "Role RBAC" },
+      { label: "UI Design", value: "Mobile-First" },
+      { label: "Database", value: "MongoDB" },
+      { label: "Architecture", value: "MERN" }
+    ],
+    testimonial: {
+      text: "Designed and deployed a full-stack healthcare management application with role-based access control, secure user authentication, and data dashboards.",
+      author: "Rishikant Yadav",
+      role: "Full-Stack Developer",
+      company: "Healthcare MERN App"
+    },
+    demoUrl: "https://github.com/Rishi-2607",
+    githubUrl: "https://github.com/Rishi-2607",
+    featured: true,
+    duration: "Jul 2024",
+    team: "Full-Stack Developer"
   },
   {
-    url: "https://img.rocket.new/generatedImages/rocket_gen_img_10d8ddd4c-1764410568869.png",
-    alt: "Progress dashboard displaying course completion percentage and achievement badges"
-  }],
-
-  challenge: "Educational institutions needed a reliable platform for remote learning that could replicate the engagement of in-person classes. Existing solutions had poor video quality, lacked interactive features, and couldn't adapt to individual student learning paces.",
-  solution: "Built a robust platform using WebRTC for high-quality video streaming with minimal latency. Implemented interactive whiteboard functionality for real-time collaboration. Created an AI-powered recommendation engine using TensorFlow.js that analyzes student performance and suggests personalized learning paths. Added gamification elements including achievement badges, leaderboards, and progress milestones to maintain student motivation.",
-  results: [
-  "Supported 25,000+ concurrent users during peak hours without performance degradation",
-  "Increased student engagement by 185% through interactive features and gamification",
-  "Improved course completion rates from 42% to 78% with personalized learning paths",
-  "Reduced instructor workload by 45% with automated grading and progress tracking",
-  "Achieved 4.7/5 average satisfaction rating from 50,000+ students"],
-
-  metrics: [
-  { label: "Concurrent Users", value: "25K+" },
-  { label: "Engagement", value: "+185%" },
-  { label: "Completion", value: "78%" },
-  { label: "Rating", value: "4.7/5" }],
-
-  testimonial: {
-    text: "This platform has made online education truly effective. Our students are more engaged than ever, and the AI-powered personalization ensures everyone learns at their optimal pace.",
-    author: "Prof. David Thompson",
-    role: "Dean of Online Education",
-    company: "Global Learning Institute"
+    id: 4,
+    title: "GSC Analyzer (Google Search Console Tool)",
+    category: "Enterprise",
+    technologies: ["React.js", "Node.js", "REST APIs", "Google APIs", "Tailwind CSS"],
+    description: "Full-stack Google Search Console management tool with automated service account user onboarding and REST API integrations.",
+    fullDescription: "Architected and shipped GSC Analyzer at Girl Power Talk to automate Google Search Console property management and analytics reporting. Designed automated service account onboarding flows and integrated high-throughput REST APIs, reducing manual client setup time significantly.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    alt: "GSC Analyzer interface displaying search analytics, automated property indexing and keyword performance",
+    additionalImages: [
+      {
+        url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+        alt: "Search metrics and organic keyword growth reports"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8",
+        alt: "Automated service account integration pipeline interface"
+      }
+    ],
+    challenge: "Manual onboarding for Google Search Console required tedious client permissions, manual verification keys, and repetitive API configurations that delayed team onboarding.",
+    solution: "Engineered automated credential handshakes using Google Service Accounts and modular REST APIs. Built an intuitive React UI where teams can connect properties and inspect indexing metrics in real time.",
+    results: [
+      "Reduced manual client property setup time significantly via service account automation",
+      "Integrated Google Search Console REST APIs for real-time indexing and keyword monitoring",
+      "Collaborated closely with cross-functional teams and clients to ship on time",
+      "Built and maintained reusable, accessible React UI component libraries"
+    ],
+    metrics: [
+      { label: "Setup Time", value: "Automated" },
+      { label: "API", value: "Google REST" },
+      { label: "Role", value: "Architect" },
+      { label: "Status", value: "Shipped" }
+    ],
+    testimonial: {
+      text: "Architected and shipped GSC Analyzer, a full-stack Google Search Console management tool — automated user onboarding via service account creation and REST API integrations, reducing manual setup time significantly.",
+      author: "Girl Power Talk",
+      role: "React Developer (Full-Time)",
+      company: "Mohali, Punjab, India"
+    },
+    demoUrl: "https://github.com/Rishi-2607",
+    githubUrl: "https://github.com/Rishi-2607",
+    featured: true,
+    duration: "Aug 2025 – Present",
+    team: "React Developer (Full-Time)"
   },
-  demoUrl: "https://example.com/demo",
-  featured: false,
-  duration: "7 months",
-  team: "Lead Developer in team of 4"
-},
-{
-  id: 6,
-  title: "Restaurant Management System",
-  category: "Food & Beverage",
-  technologies: ["React", "Node.js", "Express", "PostgreSQL", "Socket.io", "Stripe"],
-  description: "Complete restaurant management solution with online ordering, table reservations, and kitchen display system.",
-  fullDescription: "Created an all-in-one restaurant management system that streamlines operations from customer ordering to kitchen preparation. Includes online ordering with real-time menu updates, table reservation system with automated confirmations, integrated POS system, kitchen display for order management, and comprehensive analytics for business insights.",
-  image: "https://images.unsplash.com/photo-1552342294-b6cac11f3cec",
-  alt: "Modern restaurant interior with wooden tables, ambient lighting and open kitchen visible in background",
-  additionalImages: [
   {
-    url: "https://images.unsplash.com/photo-1666479258732-5ea17469b610",
-    alt: "Chef preparing gourmet dish in professional kitchen with stainless steel equipment"
+    id: 5,
+    title: "Company HRMS Platform",
+    category: "Enterprise",
+    technologies: ["React.js", "Node.js", "Express.js", "REST APIs", "Tailwind CSS"],
+    description: "Enterprise HRMS platform enhancements directly improving day-to-day HR workflows and administrative efficiency.",
+    fullDescription: "Delivered new features and performance improvements to the company's internal HRMS platform at Girl Power Talk. Upgraded core employee records, automated leave and attendance approvals, and optimized frontend bundle execution for rapid daily access across the organization.",
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174",
+    alt: "Enterprise HRMS portal showing employee records, performance tracking, and workflow management",
+    additionalImages: [
+      {
+        url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+        alt: "Team collaboration and employee workflow management"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+        alt: "Analytics reporting and HR schedule approvals"
+      }
+    ],
+    challenge: "Daily HR workflows were encumbered by legacy UI bottlenecks, slow data updates, and cumbersome permission hierarchies across departments.",
+    solution: "Re-engineered frontend state and reusable React component libraries. Implemented optimized REST query flows and streamlined approval UI views, cutting response latency for team administrators.",
+    results: [
+      "Directly enhanced day-to-day HR workflows used by the organization",
+      "Optimized React render trees and API caching, eliminating dashboard lag",
+      "Ensured responsive layouts and accessible form controls across all device sizes",
+      "Iterated rapidly with cross-functional feedback to ship production-grade features"
+    ],
+    metrics: [
+      { label: "Workflows", value: "Enhanced" },
+      { label: "Adoption", value: "Org-Wide" },
+      { label: "Performance", value: "Optimized" },
+      { label: "Role", value: "Full-Time" }
+    ],
+    testimonial: {
+      text: "Delivered new features and performance improvements to the company's HRMS platform, directly enhancing day-to-day HR workflows used by the organization.",
+      author: "Girl Power Talk",
+      role: "React Developer (Full-Time)",
+      company: "Mohali, Punjab, India"
+    },
+    demoUrl: "https://github.com/Rishi-2607",
+    githubUrl: "https://github.com/Rishi-2607",
+    featured: false,
+    duration: "Aug 2025 – Present",
+    team: "React Developer (Full-Time)"
   },
   {
-    url: "https://images.unsplash.com/photo-1656387683249-7df95066ac34",
-    alt: "Digital menu tablet showing food items with prices and order customization options"
-  }],
-
-  challenge: "Restaurant owners struggled with coordinating multiple systems for ordering, reservations, and kitchen management. This led to order errors, inefficient kitchen workflows, and poor customer experience during peak hours.",
-  solution: "Developed an integrated system connecting front-of-house and back-of-house operations. Implemented real-time order synchronization using Socket.io ensuring kitchen staff receive orders instantly. Created an intuitive table management system with visual floor plans and automated reservation confirmations. Built a comprehensive analytics dashboard tracking sales, popular items, peak hours, and customer preferences to optimize operations.",
-  results: [
-  "Reduced order errors by 89% with digital order management",
-  "Increased table turnover rate by 35% through efficient reservation system",
-  "Improved kitchen efficiency by 52% with real-time order display",
-  "Boosted online orders by 240% with user-friendly ordering interface",
-  "Enhanced customer satisfaction with 4.6/5 average rating"],
-
-  metrics: [
-  { label: "Order Errors", value: "-89%" },
-  { label: "Turnover", value: "+35%" },
-  { label: "Online Orders", value: "+240%" },
-  { label: "Rating", value: "4.6/5" }],
-
-  demoUrl: "https://example.com/demo",
-  githubUrl: "https://github.com/example/project",
-  featured: false,
-  duration: "3 months",
-  team: "Solo Developer"
-}];
-
+    id: 6,
+    title: "Front-End Interface Optimization",
+    category: "UI Engineering",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Git"],
+    description: "High-performance front-end interface engineering and optimization achieving a 10% increase in user engagement and 17% error reduction.",
+    fullDescription: "Developed and optimized front-end interfaces during software development internship at CodSoft. Focused on mobile-first responsive architecture, web performance tuning, accessibility compliance, and full-stack feature delivery using HTML, CSS, JavaScript, and Node.js.",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8",
+    alt: "Responsive web interface and accessibility audit showing cross-device rendering and performance metrics",
+    additionalImages: [
+      {
+        url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+        alt: "Clean JavaScript code and modular CSS component architecture"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+        alt: "User engagement and performance growth analytics"
+      }
+    ],
+    challenge: "Addressing slow client-side rendering, inconsistent mobile breakpoints, and high page error rates on legacy user interfaces.",
+    solution: "Refactored legacy code into semantic HTML5, modern CSS3, and ES6+ modules. Established disciplined Git branching workflows and code review standards for clean collaborative development.",
+    results: [
+      "Achieved a 10% increase in user engagement through performance and mobile-first design",
+      "Reduced page error rates by 17% by implementing robust error handling in full-stack features",
+      "Standardized Git and GitHub team collaboration with disciplined branching best practices",
+      "Ensured 100% responsive consistency across desktop, tablet, and mobile devices"
+    ],
+    metrics: [
+      { label: "Engagement", value: "+10%" },
+      { label: "Page Errors", value: "-17%" },
+      { label: "Standards", value: "Git/Reviews" },
+      { label: "Design", value: "Mobile-1st" }
+    ],
+    testimonial: {
+      text: "Developed and optimized front-end interfaces, achieving a 10% increase in user engagement and reducing page error rates by 17% through enhanced performance, accessibility, and mobile-first design.",
+      author: "CodSoft",
+      role: "Software Development Intern",
+      company: "Remote Internship"
+    },
+    demoUrl: "https://github.com/Rishi-2607",
+    githubUrl: "https://github.com/Rishi-2607",
+    featured: false,
+    duration: "Jul 2023 – Aug 2023",
+    team: "Software Development Intern"
+  }
+];
 
 export default function PortfolioInteractive() {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -322,13 +331,13 @@ export default function PortfolioInteractive() {
             <div className="h-12 bg-muted rounded-lg animate-pulse mb-8" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3, 4, 5, 6].map((i) =>
-              <div key={i} className="h-96 bg-muted rounded-xl animate-pulse" />
+                <div key={i} className="h-96 bg-muted rounded-xl animate-pulse" />
               )}
             </div>
           </div>
         </div>
-      </div>);
-
+      </div>
+    );
   }
 
   const categories = ['All', ...Array.from(new Set(mockProjects.map((p) => p.category)))];
@@ -339,8 +348,8 @@ export default function PortfolioInteractive() {
     const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory;
     const matchesTechnology = selectedTechnology === 'All' || project.technologies.includes(selectedTechnology);
     const matchesSearch = searchQuery === '' ||
-    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    project.description.toLowerCase().includes(searchQuery.toLowerCase());
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase());
 
     return matchesCategory && matchesTechnology && matchesSearch;
   });
@@ -372,8 +381,8 @@ export default function PortfolioInteractive() {
         totalProjects={mockProjects.length}
         featuredProjects={featuredCount}
         technologies={allTechnologies.length}
-        successRate="98%" />
-
+        successRate="100%"
+      />
 
       <FilterBar
         categories={categories}
@@ -384,11 +393,15 @@ export default function PortfolioInteractive() {
         onCategoryChange={setSelectedCategory}
         onTechnologyChange={setSelectedTechnology}
         onSearchChange={setSearchQuery}
-        onClearFilters={handleClearFilters} />
+        onClearFilters={handleClearFilters}
+      />
 
-
-      {filteredProjects.length === 0 ?
-      <div className="text-center py-16">
+      {filteredProjects.length === 0 ? (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-center py-16"
+        >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-muted rounded-full mb-4">
             <Icon name="FolderOpenIcon" size={32} className="text-text-secondary" />
           </div>
@@ -397,29 +410,39 @@ export default function PortfolioInteractive() {
             Try adjusting your filters or search query to find what you&apos;re looking for.
           </p>
           <button
-          onClick={handleClearFilters}
-          className="px-6 py-2.5 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors duration-200">
-
+            onClick={handleClearFilters}
+            className="px-6 py-2.5 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors duration-200"
+          >
             Clear All Filters
           </button>
-        </div> :
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) =>
-        <ProjectCard
-          key={project.id}
-          project={project}
-          onViewDetails={handleViewDetails} />
-
-        )}
-        </div>
-      }
+        </motion.div>
+      ) : (
+        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <ProjectCard
+                  project={project}
+                  onViewDetails={handleViewDetails}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      )}
 
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
-        onClose={handleCloseModal} />
-
-    </>);
-
+        onClose={handleCloseModal}
+      />
+    </>
+  );
 }

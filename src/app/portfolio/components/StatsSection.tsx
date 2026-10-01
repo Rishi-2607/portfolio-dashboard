@@ -20,25 +20,25 @@ export default function StatsSection({
       icon: 'RocketLaunchIcon',
       value: totalProjects.toString(),
       label: 'Projects Completed',
-      color: 'text-purple-400',
+      color: 'text-[#C1FF72]',
     },
     {
       icon: 'StarIcon',
       value: featuredProjects.toString(),
       label: 'Featured Projects',
-      color: 'text-pink-500',
+      color: 'text-[#20c997]',
     },
     {
       icon: 'CodeBracketIcon',
       value: technologies.toString(),
       label: 'Technologies Used',
-      color: 'text-blue-400',
+      color: 'text-[#C1FF72]',
     },
     {
       icon: 'CheckBadgeIcon',
       value: successRate,
       label: 'Success Rate',
-      color: 'text-green-400',
+      color: 'text-[#20c997]',
     },
   ];
 
@@ -49,10 +49,10 @@ export default function StatsSection({
           key={index}
           className="
             relative rounded-2xl p-6
-            bg-gradient-to-b from-gray-900 via-gray-950 to-black
+            bg-[#111a1e]
             border border-white/10
             shadow-[0_0_25px_rgba(0,0,0,0.4)]
-            transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,0,0,0.6)]
+            transition-all duration-300 hover:border-[#C1FF72]/40 hover:shadow-[0_0_25px_rgba(193,255,114,0.15)]
             hover:-translate-y-1
           "
         >

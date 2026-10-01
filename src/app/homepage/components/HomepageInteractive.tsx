@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/common/Header';
 import HeroSection from './HeroSection';
 import ClientLogos from './ClientLogos';
-import ServicesSection from './ServicesSection';
 import SkillsShowcase from './SkillsShowcase';
 import TestimonialsSection from './TestimonialsSection';
 import CTASection from './CTASection';
@@ -23,7 +22,6 @@ const HomepageInteractive = () => {
       <main className="pt-16">
         <HeroSection isHydrated={isHydrated} />
         <ClientLogos isHydrated={isHydrated} />
-        <ServicesSection />
         <SkillsShowcase />
         <TestimonialsSection isHydrated={isHydrated} />
         <CTASection />

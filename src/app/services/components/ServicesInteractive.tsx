@@ -298,34 +298,34 @@ export default function ServicesInteractive() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="bg-gradient-to-br from-gray-900 via-gray-950 to-black py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-1/3 w-72 h-72 bg-purple-700 rounded-full filter blur-3xl opacity-20 mix-blend-color-dodge -translate-x-1/2 -translate-y-1/3"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-pink-600 rounded-full filter blur-3xl opacity-20 mix-blend-color-dodge translate-x-1/4 translate-y-1/3"></div>
+    <div className="min-h-screen bg-[#090e11] text-white">
+      <div className="bg-[#090e11] py-16 sm:py-24 relative overflow-hidden border-b border-white/10">
+        <div className="absolute top-0 left-1/3 w-72 h-72 bg-[#C1FF72]/15 rounded-full filter blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#20c997]/15 rounded-full filter blur-3xl pointer-events-none translate-x-1/4 translate-y-1/3"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 backdrop-blur-sm rounded-full mb-6">
-            <Icon name="BriefcaseIcon" size={32} className="text-purple-500" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#C1FF72]/15 border border-[#C1FF72]/30 rounded-full mb-6">
+            <Icon name="BriefcaseIcon" size={32} className="text-[#C1FF72]" />
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            React Development Services
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
+            Full-Stack & React <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C1FF72] via-[#daffaa] to-[#20c997]">Services</span>
           </h1>
-          <p className="text-xl text-white/70 mb-8">
-            Premium web development solutions focused on user experience, performance, and business results.
+          <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Engineering robust web applications using Next.js and the MERN stack, combining responsive design, REST/WebSocket APIs, and reliable cloud deployments.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            <div className="flex items-center gap-2 bg-purple-500/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <Icon name="CheckCircleIcon" size={18} variant="solid" className="text-purple-500" />
-              <span>6+ Years Experience</span>
+            <div className="flex items-center gap-2 bg-[#111a1e] px-4 py-2 rounded-full border border-[#C1FF72]/30 shadow-sm">
+              <Icon name="CheckCircleIcon" size={18} variant="solid" className="text-[#C1FF72]" />
+              <span className="text-gray-200">1+ Year Professional Experience</span>
             </div>
-            <div className="flex items-center gap-2 bg-purple-500/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <Icon name="StarIcon" size={18} variant="solid" className="text-purple-500" />
-              <span>50+ Projects Delivered</span>
+            <div className="flex items-center gap-2 bg-[#111a1e] px-4 py-2 rounded-full border border-[#C1FF72]/30 shadow-sm">
+              <Icon name="StarIcon" size={18} variant="solid" className="text-[#C1FF72]" />
+              <span className="text-gray-200">Production-Grade Features</span>
             </div>
-            <div className="flex items-center gap-2 bg-purple-500/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <Icon name="UserGroupIcon" size={18} variant="solid" className="text-purple-500" />
-              <span>100% Client Satisfaction</span>
+            <div className="flex items-center gap-2 bg-[#111a1e] px-4 py-2 rounded-full border border-[#C1FF72]/30 shadow-sm">
+              <Icon name="UserGroupIcon" size={18} variant="solid" className="text-[#C1FF72]" />
+              <span className="text-gray-200">Collaborative Problem Solver</span>
             </div>
           </div>
         </div>
@@ -337,10 +337,10 @@ export default function ServicesInteractive() {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? 'bg-purple-500 text-white shadow-lg'
-                  : 'bg-gray-900/70 text-white/70 hover:bg-gray-800 border border-gray-800'
+                  ? 'bg-[#C1FF72] text-[#090e11] shadow-lg shadow-[#C1FF72]/20 border border-[#C1FF72]'
+                  : 'bg-[#111a1e] text-gray-300 hover:text-white hover:bg-[#182428] border border-white/10'
               }`}
             >
               <Icon
@@ -348,8 +348,8 @@ export default function ServicesInteractive() {
                 size={20}
                 className={
                   selectedCategory === category.id
-                    ? 'text-white'
-                    : 'text-white/70'
+                    ? 'text-[#090e11]'
+                    : 'text-gray-400'
                 }
               />
               <span>{category.name}</span>
@@ -362,7 +362,7 @@ export default function ServicesInteractive() {
             <ServiceCard
               key={index}
               {...service}
-              className="bg-gray-900/70 border border-gray-800 rounded-2xl shadow-soft hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-[#111a1e] border border-white/10 rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.4)] hover:border-[#C1FF72]/40 hover:shadow-[0_0_30px_rgba(193,255,114,0.15)] hover:-translate-y-1 transition-all duration-300"
             />
           ))}
         </div>
@@ -370,19 +370,19 @@ export default function ServicesInteractive() {
         <div className="mb-16">
           <ProcessFlow
             steps={processSteps}
-            className="bg-gray-900/70 border border-gray-800 rounded-2xl shadow-soft p-8 hover:shadow-xl transition-all duration-300"
+            className="bg-[#111a1e] border border-white/10 rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.4)] p-8 hover:border-[#C1FF72]/40 transition-all duration-300"
           />
         </div>
 
         <div className="mb-16">
-          <ServiceComparison className="bg-gray-900/70 border border-gray-800 rounded-2xl shadow-soft p-8 hover:shadow-xl transition-all duration-300" />
+          <ServiceComparison className="bg-[#111a1e] border border-white/10 rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.4)] p-8 hover:border-[#C1FF72]/40 transition-all duration-300" />
         </div>
 
         <div className="mb-16">
-          <PricingCalculator className="bg-gray-900/70 border border-gray-800 rounded-2xl shadow-soft p-8 hover:shadow-xl transition-all duration-300" />
+          <PricingCalculator className="bg-[#111a1e] border border-white/10 rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.4)] p-8 hover:border-[#C1FF72]/40 transition-all duration-300" />
         </div>
 
-        <CTASection className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-lg p-12 text-center text-white" />
+        <CTASection />
       </div>
     </div>
   );

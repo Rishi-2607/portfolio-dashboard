@@ -3,8 +3,8 @@ import Header from '@/components/common/Header';
 import ServicesInteractive from './components/ServicesInteractive';
 
 export const metadata: Metadata = {
-  title: 'Services - Rishikant Portfolio',
-  description: 'Premium React development services including custom web applications, UI/UX redesign, performance optimization, and ongoing maintenance. Transparent pricing and proven process.',
+  title: 'Development Services - Rishikant Yadav | Full-Stack & Next.js',
+  description: 'Full-stack development services by Rishikant Yadav including Next.js web applications, accessible React UI component libraries, real-time Socket.io integrations, and frontend optimization.',
 };
 
 export default function ServicesPage() {

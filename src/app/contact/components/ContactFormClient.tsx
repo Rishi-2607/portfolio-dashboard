@@ -160,7 +160,7 @@ const ContactFormClient = () => {
   }
 
  return (
-  <div className="bg-gray-900 rounded-xl p-8 shadow-soft border border-purple-700">
+  <div className="bg-[#111a1e] rounded-2xl p-8 shadow-[0_0_25px_rgba(0,0,0,0.4)] border border-white/10">
 
     <div className="mb-8">
       <h2 className="text-2xl font-bold text-white mb-2">
@@ -191,14 +191,14 @@ const ContactFormClient = () => {
     )}
 
     {submitStatus === 'error' && (
-      <div className="mb-6 p-4 rounded-lg bg-pink-600/10 border border-pink-600/20 flex items-start space-x-3">
+      <div className="mb-6 p-4 rounded-lg bg-red-600/10 border border-red-600/20 flex items-start space-x-3">
         <Icon
           name="ExclamationCircleIcon"
           size={24}
-          className="text-pink-500 flex-shrink-0 mt-0.5"
+          className="text-red-500 flex-shrink-0 mt-0.5"
         />
         <div>
-          <h3 className="text-base font-semibold text-pink-500 mb-1">
+          <h3 className="text-base font-semibold text-red-500 mb-1">
             Submission Failed
           </h3>
           <p className="text-sm text-gray-400">
@@ -216,7 +216,7 @@ const ContactFormClient = () => {
             htmlFor="name"
             className="block text-sm font-medium text-white mb-2"
           >
-            Full Name <span className="text-pink-500">*</span>
+            Full Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -226,13 +226,13 @@ const ContactFormClient = () => {
             onChange={handleChange}
             className={`w-full px-4 py-3 rounded-lg border ${
               errors.name
-                ? 'border-pink-500 focus:ring-pink-500'
-                : 'border-gray-700 focus:ring-purple-500'
-            } bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200`}
+                ? 'border-red-500 focus:ring-red-500'
+                : 'border-white/10 focus:ring-[#C1FF72]'
+            } bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200`}
             placeholder="John Doe"
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-pink-500">{errors.name}</p>
+            <p className="mt-1 text-sm text-red-500">{errors.name}</p>
           )}
         </div>
 
@@ -241,7 +241,7 @@ const ContactFormClient = () => {
             htmlFor="email"
             className="block text-sm font-medium text-white mb-2"
           >
-            Email Address <span className="text-pink-500">*</span>
+            Email Address <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -251,13 +251,13 @@ const ContactFormClient = () => {
             onChange={handleChange}
             className={`w-full px-4 py-3 rounded-lg border ${
               errors.email
-                ? 'border-pink-500 focus:ring-pink-500'
-                : 'border-gray-700 focus:ring-purple-500'
-            } bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200`}
+                ? 'border-red-500 focus:ring-red-500'
+                : 'border-white/10 focus:ring-[#C1FF72]'
+            } bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200`}
             placeholder="john@example.com"
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-pink-500">{errors.email}</p>
+            <p className="mt-1 text-sm text-red-500">{errors.email}</p>
           )}
         </div>
       </div>
@@ -278,13 +278,13 @@ const ContactFormClient = () => {
             onChange={handleChange}
             className={`w-full px-4 py-3 rounded-lg border ${
               errors.phone
-                ? 'border-pink-500 focus:ring-pink-500'
-                : 'border-gray-700 focus:ring-purple-500'
-            } bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200`}
+                ? 'border-red-500 focus:ring-red-500'
+                : 'border-white/10 focus:ring-[#C1FF72]'
+            } bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200`}
             placeholder="+1 (555) 123-4567"
           />
           {errors.phone && (
-            <p className="mt-1 text-sm text-pink-500">{errors.phone}</p>
+            <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
           )}
         </div>
 
@@ -301,7 +301,7 @@ const ContactFormClient = () => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-700 focus:ring-purple-500 bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200"
+            className="w-full px-4 py-3 rounded-lg border border-white/10 focus:ring-[#C1FF72] bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200"
             placeholder="Your Company"
           />
         </div>
@@ -320,11 +320,11 @@ const ContactFormClient = () => {
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-700 focus:ring-purple-500 bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200"
+            className="w-full px-4 py-3 rounded-lg border border-white/10 focus:ring-[#C1FF72] bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200"
           >
-            <option value="">Select type</option>
+            <option value="" className="bg-[#111a1e]">Select type</option>
             {projectTypes.map((type) => (
-              <option key={type} value={type}>
+              <option key={type} value={type} className="bg-[#111a1e]">
                 {type}
               </option>
             ))}
@@ -343,11 +343,11 @@ const ContactFormClient = () => {
             name="budget"
             value={formData.budget}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-700 focus:ring-purple-500 bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200"
+            className="w-full px-4 py-3 rounded-lg border border-white/10 focus:ring-[#C1FF72] bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200"
           >
-            <option value="">Select budget</option>
+            <option value="" className="bg-[#111a1e]">Select budget</option>
             {budgetRanges.map((range) => (
-              <option key={range} value={range}>
+              <option key={range} value={range} className="bg-[#111a1e]">
                 {range}
               </option>
             ))}
@@ -366,11 +366,11 @@ const ContactFormClient = () => {
             name="timeline"
             value={formData.timeline}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-700 focus:ring-purple-500 bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200"
+            className="w-full px-4 py-3 rounded-lg border border-white/10 focus:ring-[#C1FF72] bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200"
           >
-            <option value="">Select timeline</option>
+            <option value="" className="bg-[#111a1e]">Select timeline</option>
             {timelines.map((time) => (
-              <option key={time} value={time}>
+              <option key={time} value={time} className="bg-[#111a1e]">
                 {time}
               </option>
             ))}
@@ -383,7 +383,7 @@ const ContactFormClient = () => {
           htmlFor="message"
           className="block text-sm font-medium text-white mb-2"
         >
-          Project Details <span className="text-pink-500">*</span>
+          Project Details <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
@@ -393,13 +393,13 @@ const ContactFormClient = () => {
           rows={6}
           className={`w-full px-4 py-3 rounded-lg border ${
             errors.message
-              ? 'border-pink-500 focus:ring-pink-500'
-              : 'border-gray-700 focus:ring-purple-500'
-          } bg-gray-900 text-white focus:outline-none focus:ring-2 transition-all duration-200 resize-none`}
+              ? 'border-red-500 focus:ring-red-500'
+              : 'border-white/10 focus:ring-[#C1FF72]'
+          } bg-[#182428] text-white focus:outline-none focus:ring-2 transition-all duration-200 resize-none`}
           placeholder="Tell me about your project, goals, and any specific requirements..."
         ></textarea>
         {errors.message && (
-          <p className="mt-1 text-sm text-pink-500">{errors.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.message}</p>
         )}
         <p className="mt-2 text-xs text-gray-400">
           Minimum 20 characters. Be as detailed as possible to help me
@@ -407,11 +407,11 @@ const ContactFormClient = () => {
         </p>
       </div>
 
-      <div className="flex items-start space-x-3 p-4 rounded-lg bg-gray-800/50">
+      <div className="flex items-start space-x-3 p-4 rounded-xl bg-[#182428] border border-white/10">
         <Icon
           name="InformationCircleIcon"
           size={20}
-          className="text-purple-500 flex-shrink-0 mt-0.5"
+          className="text-[#C1FF72] flex-shrink-0 mt-0.5"
         />
         <p className="text-sm text-gray-300">
           By submitting this form, you agree to be contacted regarding your
@@ -423,11 +423,11 @@ const ContactFormClient = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-8 py-4 bg-purple-500 text-white font-semibold rounded-lg shadow-interactive hover:shadow-purple-600 hover:-translate-y-0.5 transition-all duration-200 ease-out disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
+        className="w-full px-8 py-4 bg-[#C1FF72] hover:bg-[#d4ff8f] text-[#090e11] font-bold rounded-xl shadow-lg shadow-[#C1FF72]/20 hover:-translate-y-0.5 transition-all duration-200 ease-out disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
       >
         {isSubmitting ? (
           <>
-            <Icon name="ArrowPathIcon" size={20} className="animate-spin" />
+            <Icon name="ArrowPathIcon" size={20} className="animate-spin text-[#090e11]" />
             <span>Sending...</span>
           </>
         ) : (

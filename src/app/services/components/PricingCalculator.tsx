@@ -87,12 +87,12 @@ export default function PricingCalculator({ className = '' }: PricingCalculatorP
   return (
     <div className="bg-gray-900/70 rounded-2xl shadow-soft p-6 sm:p-8 border border-gray-800">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center">
-          <Icon name="CalculatorIcon" size={24} className="text-purple-400" />
+        <div className="w-12 h-12 bg-[#C1FF72]/15 border border-[#C1FF72]/30 rounded-lg flex items-center justify-center">
+          <Icon name="CalculatorIcon" size={24} className="text-[#C1FF72]" />
         </div>
         <div>
           <h3 className="text-xl sm:text-2xl font-bold text-white">Pricing Calculator</h3>
-          <p className="text-white/70 text-sm">Estimate your project cost</p>
+          <p className="text-gray-400 text-sm">Estimate your project cost</p>
         </div>
       </div>
 
@@ -105,14 +105,14 @@ export default function PricingCalculator({ className = '' }: PricingCalculatorP
               <button
                 key={service.id}
                 onClick={() => setSelectedService(service.id)}
-                className={`p-4 rounded-lg border-2 text-left transition-all duration-200 ${
+                className={`p-4 rounded-xl border-2 text-left transition-all duration-200 ${
                   selectedService === service.id
-                    ? 'border-purple-500 bg-purple-500/10 shadow-lg hover:shadow-purple-500/40'
-                    : 'border-gray-800 hover:border-purple-500/50'
+                    ? 'border-[#C1FF72] bg-[#C1FF72]/10 shadow-lg shadow-[#C1FF72]/15'
+                    : 'border-white/10 bg-[#182428] hover:border-[#C1FF72]/40'
                 }`}
               >
-                <div className="font-semibold text-white text-sm sm:text-base">{service.name}</div>
-                <div className="text-white/60 text-xs sm:text-sm mt-1">
+                <div className="font-bold text-white text-sm sm:text-base">{service.name}</div>
+                <div className="text-gray-400 text-xs sm:text-sm mt-1">
                   Starting at ${service.basePrice.toLocaleString()}
                 </div>
               </button>
@@ -128,14 +128,14 @@ export default function PricingCalculator({ className = '' }: PricingCalculatorP
               <button
                 key={complexity}
                 onClick={() => setProjectComplexity(complexity)}
-                className={`p-3 rounded-lg border-2 text-center transition-all duration-200 ${
+                className={`p-3 rounded-xl border-2 text-center transition-all duration-200 ${
                   projectComplexity === complexity
-                    ? 'border-pink-500 bg-pink-500/10 shadow-md hover:shadow-pink-500/30'
-                    : 'border-gray-800 hover:border-pink-500/50'
+                    ? 'border-[#20c997] bg-[#20c997]/15 shadow-md shadow-[#20c997]/20'
+                    : 'border-white/10 bg-[#182428] hover:border-[#20c997]/40'
                 }`}
               >
-                <div className="font-semibold text-white text-sm capitalize">{complexity}</div>
-                <div className="text-white/60 text-xs mt-1">{complexityMultipliers[complexity]}x</div>
+                <div className="font-bold text-white text-sm capitalize">{complexity}</div>
+                <div className="text-gray-400 text-xs mt-1">{complexityMultipliers[complexity]}x</div>
               </button>
             ))}
           </div>
@@ -149,10 +149,10 @@ export default function PricingCalculator({ className = '' }: PricingCalculatorP
               <button
                 key={addon.id}
                 onClick={() => toggleAddon(addon.id)}
-                className={`w-full p-4 rounded-lg border-2 text-left transition-all duration-200 ${
+                className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 ${
                   selectedAddons.includes(addon.id)
-                    ? 'border-purple-400 bg-purple-400/10 shadow-md hover:shadow-purple-400/30'
-                    : 'border-gray-800 hover:border-purple-400/50'
+                    ? 'border-[#C1FF72] bg-[#C1FF72]/10 shadow-md shadow-[#C1FF72]/15'
+                    : 'border-white/10 bg-[#182428] hover:border-[#C1FF72]/30'
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -160,17 +160,17 @@ export default function PricingCalculator({ className = '' }: PricingCalculatorP
                     <div
                       className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors duration-200 ${
                         selectedAddons.includes(addon.id)
-                          ? 'border-purple-400 bg-purple-400'
-                          : 'border-gray-800'
+                          ? 'border-[#C1FF72] bg-[#C1FF72]'
+                          : 'border-white/20'
                       }`}
                     >
                       {selectedAddons.includes(addon.id) && (
-                        <Icon name="CheckIcon" size={14} className="text-white" />
+                        <Icon name="CheckIcon" size={14} className="text-[#090e11]" />
                       )}
                     </div>
-                    <span className="font-medium text-white text-sm sm:text-base">{addon.name}</span>
+                    <span className="font-semibold text-white text-sm sm:text-base">{addon.name}</span>
                   </div>
-                  <span className="text-white/60 font-semibold text-sm sm:text-base">
+                  <span className="text-[#C1FF72] font-bold text-sm sm:text-base">
                     +${addon.price.toLocaleString()}
                   </span>
                 </div>
@@ -180,17 +180,17 @@ export default function PricingCalculator({ className = '' }: PricingCalculatorP
         </div>
 
         {/* Total */}
-        <div className="bg-purple-700/10 rounded-lg p-6 border-2 border-purple-500">
+        <div className="bg-[#182428] rounded-xl p-6 border-2 border-[#C1FF72] shadow-[0_0_25px_rgba(193,255,114,0.15)]">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-white/70 font-medium">Estimated Total</span>
+            <span className="text-gray-300 font-semibold">Estimated Total</span>
             <div className="text-right">
-              <div className="text-3xl font-bold text-purple-400">
+              <div className="text-3xl font-extrabold text-[#C1FF72]">
                 ${calculateTotal().toLocaleString()}
               </div>
-              <div className="text-xs text-white/60 mt-1">USD (approximate)</div>
+              <div className="text-xs text-gray-400 mt-1">USD (approximate)</div>
             </div>
           </div>
-          <p className="text-xs text-white/60 mt-4">
+          <p className="text-xs text-gray-400 mt-4">
             * Final pricing may vary based on specific requirements and project scope. Contact for detailed quote.
           </p>
         </div>

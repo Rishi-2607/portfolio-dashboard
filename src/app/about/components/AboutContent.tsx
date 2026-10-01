@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import JourneyTimeline from './JourneyTimeline';
@@ -55,409 +56,393 @@ export default function AboutContent() {
   }, []);
 
   const milestones: Milestone[] = [
-  {
-    id: 1,
-    year: '2018',
-    title: 'Junior React Developer',
-    company: 'TechCorp Solutions',
-    description: 'Started my journey in web development, focusing on building responsive user interfaces and learning React fundamentals.',
-    achievements: [
-    'Developed 15+ responsive web components',
-    'Improved page load time by 40%',
-    'Contributed to 3 major product releases'],
-
-    technologies: ['React', 'JavaScript', 'CSS3', 'HTML5']
-  },
-  {
-    id: 2,
-    year: '2019',
-    title: 'React Developer',
-    company: 'Digital Innovations Inc',
-    description: 'Advanced to building complex single-page applications and implementing state management solutions.',
-    achievements: [
-    'Led frontend development for 2 enterprise projects',
-    'Mentored 3 junior developers',
-    'Implemented Redux for state management across 5 applications'],
-
-    technologies: ['React', 'Redux', 'TypeScript', 'REST APIs']
-  },
-  {
-    id: 3,
-    year: '2020',
-    title: 'Senior React Developer',
-    company: 'CloudTech Systems',
-    description: 'Specialized in performance optimization and architecting scalable React applications for high-traffic platforms.',
-    achievements: [
-    'Architected frontend for platform serving 100K+ users',
-    'Reduced bundle size by 60% through code splitting',
-    'Established component library used across 8 projects'],
-
-    technologies: ['React', 'Next.js', 'TypeScript', 'GraphQL']
-  },
-  {
-    id: 4,
-    year: '2021',
-    title: 'Lead Frontend Engineer',
-    company: 'Enterprise Solutions Group',
-    description: 'Led frontend team and established best practices for React development across the organization.',
-    achievements: [
-    'Managed team of 6 frontend developers',
-    'Implemented CI/CD pipeline reducing deployment time by 70%',
-    'Delivered 4 major client projects ahead of schedule'],
-
-    technologies: ['React', 'Next.js', 'TypeScript', 'AWS', 'Docker']
-  },
-  {
-    id: 5,
-    year: '2022',
-    title: 'Freelance React Specialist',
-    company: 'Independent Consultant',
-    description: 'Transitioned to freelancing to work directly with diverse clients, delivering custom React solutions.',
-    achievements: [
-    'Successfully completed 20+ client projects',
-    'Achieved 100% client satisfaction rate',
-    'Built long-term partnerships with 8 recurring clients'],
-
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js']
-  },
-  {
-    id: 6,
-    year: '2023-Present',
-    title: 'Senior Freelance React Developer',
-    company: 'Strategic Technology Partner',
-    description: 'Established as a trusted React expert, focusing on high-value projects that transform businesses through exceptional user experiences.',
-    achievements: [
-    'Delivered 30+ production-ready applications',
-    'Generated $500K+ in measurable client value',
-    'Maintained 98% project success rate'],
-
-    technologies: ['React', 'Next.js 14', 'TypeScript', 'Tailwind CSS', 'Server Components']
-  }];
-
+    {
+      id: 1,
+      year: 'Aug 2025 – Present',
+      title: 'React Developer (Full-Time)',
+      company: 'Girl Power Talk — Mohali, Punjab, India',
+      description: 'Architecting and shipping full-stack enterprise web solutions, automating third-party workflows, and building core internal UI component libraries.',
+      achievements: [
+        'Architected and shipped GSC Analyzer, a full-stack Google Search Console management tool — automated user onboarding via service account creation and REST API integrations, reducing manual setup time significantly.',
+        'Delivered new features and performance improvements to the company’s HRMS platform, directly enhancing day-to-day HR workflows used across the organization.',
+        'Collaborated closely with cross-functional teams and clients to gather requirements, iterate on feedback, and ship high-quality, production-ready solutions on time.',
+        'Built and maintained reusable, accessible React UI component libraries for internal projects, ensuring design consistency and responsiveness across all screen sizes.'
+      ],
+      technologies: ['React.js', 'Next.js', 'REST APIs', 'Node.js', 'Tailwind CSS', 'Git']
+    },
+    {
+      id: 2,
+      year: 'Jul 2023 – Aug 2023',
+      title: 'Software Development Intern',
+      company: 'CodSoft — Remote',
+      description: 'Developed and optimized front-end interfaces, improving user experience, accessibility, and system reliability.',
+      achievements: [
+        'Developed and optimized front-end interfaces, achieving a 10% increase in user engagement through enhanced performance, accessibility, and mobile-first design.',
+        'Implemented full-stack features using HTML, CSS, JavaScript, and Node.js, reducing page error rates by 17%.',
+        'Managed source code and collaborated on team projects using Git and GitHub, following branching and code review best practices.'
+      ],
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'Git', 'GitHub']
+    },
+    {
+      id: 3,
+      year: '2020 – 2024',
+      title: 'B.Tech in Computer Science and Engineering',
+      company: 'Babu Banarasi Das Institute of Technology and Management — Lucknow, UP',
+      description: 'Completed Bachelor of Technology in CSE with a strong focus on data structures, web architecture, and full-stack software development.',
+      achievements: [
+        'Graduated with CGPA: 7.3 / 10.',
+        'Developed production-grade MERN stack applications including Healthcare Management and Real-Time Chat applications.',
+        'Mastered foundational Computer Science principles: Database Management, Object-Oriented Programming, and Computer Networks.'
+      ],
+      technologies: ['JavaScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL']
+    },
+    {
+      id: 4,
+      year: '2018 – 2020',
+      title: 'High School & Intermediate Studies',
+      company: 'Patanjali Rishikul — Prayagraj, Uttar Pradesh',
+      description: 'Completed secondary and senior secondary education under the CBSE board with focus on mathematics and science.',
+      achievements: [
+        'Higher Secondary (Class XII) – CBSE (2020): 77%',
+        'Secondary (Class X) – CBSE (2018): 76%'
+      ],
+      technologies: ['Mathematics', 'Physics', 'Computer Science Fundamentals']
+    }
+  ];
 
   const skills: Skill[] = [
-  { id: 1, name: 'React', category: 'Frontend Framework', level: 95, yearsOfExperience: 6 },
-  { id: 2, name: 'Next.js', category: 'React Framework', level: 92, yearsOfExperience: 4 },
-  { id: 3, name: 'TypeScript', category: 'Programming Language', level: 90, yearsOfExperience: 5 },
-  { id: 4, name: 'JavaScript', category: 'Programming Language', level: 95, yearsOfExperience: 6 },
-  { id: 5, name: 'Tailwind CSS', category: 'CSS Framework', level: 88, yearsOfExperience: 3 },
-  { id: 6, name: 'Redux', category: 'State Management', level: 85, yearsOfExperience: 4 },
-  { id: 7, name: 'GraphQL', category: 'API Technology', level: 80, yearsOfExperience: 3 },
-  { id: 8, name: 'REST APIs', category: 'API Technology', level: 90, yearsOfExperience: 6 },
-  { id: 9, name: 'Node.js', category: 'Backend', level: 75, yearsOfExperience: 4 },
-  { id: 10, name: 'Git', category: 'Version Control', level: 92, yearsOfExperience: 6 },
-  { id: 11, name: 'Responsive Design', category: 'UI/UX', level: 93, yearsOfExperience: 6 },
-  { id: 12, name: 'Performance Optimization', category: 'Optimization', level: 88, yearsOfExperience: 5 }];
-
+    { id: 1, name: 'React.js', category: 'Frontend', level: 95, yearsOfExperience: 1.5 },
+    { id: 2, name: 'Next.js', category: 'Frontend', level: 90, yearsOfExperience: 1.5 },
+    { id: 3, name: 'JavaScript (ES6+)', category: 'Languages', level: 94, yearsOfExperience: 2 },
+    { id: 4, name: 'HTML5 & CSS3', category: 'Languages', level: 96, yearsOfExperience: 2 },
+    { id: 5, name: 'Tailwind CSS', category: 'Frontend', level: 95, yearsOfExperience: 1.5 },
+    { id: 6, name: 'Node.js', category: 'Backend', level: 88, yearsOfExperience: 1.5 },
+    { id: 7, name: 'Express.js', category: 'Backend', level: 88, yearsOfExperience: 1.5 },
+    { id: 8, name: 'Socket.io', category: 'Backend', level: 85, yearsOfExperience: 1 },
+    { id: 9, name: 'MongoDB (Atlas)', category: 'Database & Cloud', level: 88, yearsOfExperience: 1.5 },
+    { id: 10, name: 'MySQL', category: 'Database & Cloud', level: 80, yearsOfExperience: 1 },
+    { id: 11, name: 'Git & GitHub', category: 'Tools', level: 92, yearsOfExperience: 2 },
+    { id: 12, name: 'Postman & REST APIs', category: 'Tools', level: 90, yearsOfExperience: 1.5 }
+  ];
 
   const achievements: Achievement[] = [
-  {
-    id: 1,
-    title: 'React Advanced Certification',
-    issuer: 'Meta (Facebook)',
-    date: '2022',
-    verificationUrl: '#',
-    icon: 'AcademicCapIcon'
-  },
-  {
-    id: 2,
-    title: 'Next.js Expert Certification',
-    issuer: 'Vercel',
-    date: '2023',
-    verificationUrl: '#',
-    icon: 'CheckBadgeIcon'
-  },
-  {
-    id: 3,
-    title: 'TypeScript Professional',
-    issuer: 'Microsoft',
-    date: '2021',
-    verificationUrl: '#',
-    icon: 'CodeBracketIcon'
-  },
-  {
-    id: 4,
-    title: 'Web Performance Specialist',
-    issuer: 'Google',
-    date: '2022',
-    verificationUrl: '#',
-    icon: 'BoltIcon'
-  },
-  {
-    id: 5,
-    title: 'UI/UX Design Principles',
-    issuer: 'Nielsen Norman Group',
-    date: '2021',
-    verificationUrl: '#',
-    icon: 'SparklesIcon'
-  },
-  {
-    id: 6,
-    title: 'Accessibility Specialist',
-    issuer: 'W3C',
-    date: '2023',
-    verificationUrl: '#',
-    icon: 'UserGroupIcon'
-  }];
-
+    {
+      id: 1,
+      title: 'GSC Analyzer Production Release',
+      issuer: 'Girl Power Talk',
+      date: '2025',
+      verificationUrl: 'https://github.com/Rishi-2607',
+      icon: 'RocketLaunchIcon'
+    },
+    {
+      id: 2,
+      title: 'HRMS Workflow Optimization',
+      issuer: 'Girl Power Talk',
+      date: '2025',
+      verificationUrl: 'https://github.com/Rishi-2607',
+      icon: 'CheckBadgeIcon'
+    },
+    {
+      id: 3,
+      title: '+10% Engagement & -17% Errors',
+      issuer: 'CodSoft Internship',
+      date: '2023',
+      verificationUrl: 'https://github.com/Rishi-2607',
+      icon: 'BoltIcon'
+    },
+    {
+      id: 4,
+      title: 'B.Tech in Computer Science (CGPA: 7.3/10)',
+      issuer: 'BBDITM, Lucknow',
+      date: '2024',
+      verificationUrl: 'https://linkedin.com/in/rishikant-yadav',
+      icon: 'AcademicCapIcon'
+    },
+    {
+      id: 5,
+      title: 'Class XII CBSE Merit (77%)',
+      issuer: 'Patanjali Rishikul',
+      date: '2020',
+      verificationUrl: 'https://linkedin.com/in/rishikant-yadav',
+      icon: 'ShieldCheckIcon'
+    },
+    {
+      id: 6,
+      title: 'Class X CBSE Merit (76%)',
+      issuer: 'Patanjali Rishikul',
+      date: '2018',
+      verificationUrl: 'https://linkedin.com/in/rishikant-yadav',
+      icon: 'SparklesIcon'
+    }
+  ];
 
   const networkConnections: NetworkConnection[] = [
-  {
-    id: 1,
-    name: 'Sarah Mitchell',
-    position: 'CTO',
-    company: 'TechVision Inc',
-    recommendation: 'Rishikant transformed our entire frontend architecture. His expertise in React and attention to user experience resulted in a 45% increase in user engagement. He\'s not just a developer - he\'s a strategic partner who understands business goals.',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_18d07eb19-1763299289544.png",
-    alt: 'Professional woman with blonde hair in navy blazer smiling confidently in modern office',
-    linkedinUrl: '#'
-  },
-  {
-    id: 2,
-    name: 'Michael Chen',
-    position: 'Product Manager',
-    company: 'CloudTech Systems',
-    recommendation: 'Working with Rishikant was exceptional. He delivered a complex dashboard application 2 weeks ahead of schedule with zero bugs. His code quality and documentation set the standard for our entire engineering team.',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1f5717f50-1763295673826.png",
-    alt: 'Asian man in glasses and gray suit smiling professionally in corporate setting',
-    linkedinUrl: '#'
-  },
-  {
-    id: 3,
-    name: 'Emily Rodriguez',
-    position: 'Founder & CEO',
-    company: 'StartupHub',
-    recommendation: 'Rishikant built our MVP in record time without compromising quality. His ability to translate our vision into a beautiful, functional product was remarkable. He\'s now our go-to developer for all React projects.',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_16fcf9a6b-1763299446201.png",
-    alt: 'Hispanic woman with long dark hair in white blouse smiling warmly in bright office',
-    linkedinUrl: '#'
-  },
-  {
-    id: 4,
-    name: 'David Thompson',
-    position: 'Engineering Director',
-    company: 'Enterprise Solutions Group',
-    recommendation: 'Rishikant led our frontend team through a critical migration to Next.js. His technical leadership and mentoring elevated the entire team\'s capabilities. The performance improvements he achieved were game-changing.',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_19ce72cc2-1763296345433.png",
-    alt: 'Caucasian man with beard in dark suit smiling confidently in executive office',
-    linkedinUrl: '#'
-  }];
-
+    {
+      id: 1,
+      name: 'Girl Power Talk Engineering',
+      position: 'Full-Stack Development Team',
+      company: 'Girl Power Talk (Mohali)',
+      recommendation: 'Collaborated on shipping GSC Analyzer and building responsive React UI component libraries that enhanced organizational HRMS workflows.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
+      alt: 'Cross-functional engineering team collaborating in modern office',
+      linkedinUrl: 'https://linkedin.com/in/rishikant-yadav'
+    },
+    {
+      id: 2,
+      name: 'CodSoft Development Cohort',
+      position: 'Frontend & Full-Stack Team',
+      company: 'CodSoft (Remote)',
+      recommendation: 'Partnered on delivering accessible front-end interfaces, optimizing web performance by 10% and reducing page error rates by 17%.',
+      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998',
+      alt: 'Developers collaborating on software development code',
+      linkedinUrl: 'https://linkedin.com/in/rishikant-yadav'
+    },
+    {
+      id: 3,
+      name: 'BBDITM Computer Science Dept',
+      position: 'Academic & Project Peer Group',
+      company: 'Babu Banarasi Das ITM',
+      recommendation: 'Engineered MERN full-stack projects including Healthcare Management Systems and Real-Time Chat applications using Socket.io and MongoDB.',
+      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
+      alt: 'Computer science students collaborating on engineering projects',
+      linkedinUrl: 'https://linkedin.com/in/rishikant-yadav'
+    }
+  ];
 
   const valuePropositions = [
-  {
-    icon: 'SparklesIcon',
-    title: 'User-Centric Development',
-    description: 'Every line of code serves the end user. I build interfaces that people love to use, combining technical excellence with intuitive design principles.'
-  },
-  {
-    icon: 'RocketLaunchIcon',
-    title: 'Performance Obsessed',
-    description: 'Fast applications drive business results. I optimize every aspect - from bundle size to render performance - ensuring your users get lightning-fast experiences.'
-  },
-  {
-    icon: 'ShieldCheckIcon',
-    title: 'Production-Ready Quality',
-    description: 'No shortcuts, no technical debt. I deliver clean, maintainable code with comprehensive testing and documentation that your team can build upon.'
-  },
-  {
-    icon: 'ChatBubbleLeftRightIcon',
-    title: 'Strategic Partnership',
-    description: 'I\'m not just executing tasks - I\'m solving business problems. I bring strategic thinking to every project, ensuring technology serves your goals.'
-  }];
-
+    {
+      icon: 'CodeBracketIcon',
+      title: 'Clean Code & MERN Mastery',
+      description: 'Strong architectural patterns across MongoDB, Express, React, and Node.js with attention to maintainability and readability.'
+    },
+    {
+      icon: 'RocketLaunchIcon',
+      title: 'Performance & SEO First',
+      description: 'Next.js server-side rendering, optimized image pipelines, and fast load times ensuring seamless user experience.'
+    },
+    {
+      icon: 'ShieldCheckIcon',
+      title: 'Production-Grade Quality',
+      description: 'Tested REST API integrations, JWT authentication, error handling, and robust third-party API automation.'
+    },
+    {
+      icon: 'ChatBubbleLeftRightIcon',
+      title: 'Ownership & Collaboration',
+      description: 'Clear client communication, active team collaboration, and a track record of on-time delivery across projects.'
+    }
+  ];
 
   if (!isHydrated) {
     return (
-      <main className="min-h-screen bg-background pt-16">
+      <main className="min-h-screen bg-[#090e11] pt-16">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-7xl mx-auto">
-            <div className="h-96 bg-muted animate-pulse rounded-lg" />
+            <div className="h-96 bg-[#111a1e] animate-pulse rounded-2xl" />
           </div>
         </div>
-      </main>);
-
+      </main>
+    );
   }
 
-return (
-  <main className="min-h-screen bg-gray-900 pt-16 text-white">
-    {/* Hero Section */}
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-gray-950 to-black relative overflow-hidden">
-      {/* Floating shapes */}
-      <div className="absolute top-0 left-1/3 w-72 h-72 bg-purple-700 rounded-full filter blur-3xl opacity-20 mix-blend-color-dodge -translate-x-1/2 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-pink-600 rounded-full filter blur-3xl opacity-20 mix-blend-color-dodge translate-x-1/4 translate-y-1/3"></div>
+  return (
+    <main className="min-h-screen bg-[#090e11] pt-16 text-white">
+      {/* Hero Section */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#090e11] relative overflow-hidden">
+        {/* Ambient background glows */}
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#C1FF72]/10 rounded-full filter blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#20c997]/10 rounded-full filter blur-[120px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-purple-700/20 rounded-full">
-            <Icon name="UserCircleIcon" size={20} className="text-purple-400" />
-            <span className="text-sm font-semibold text-purple-300">About Me</span>
-          </div>
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-            Crafting Digital Experiences Through{' '}
-            <span className="text-purple-500">Technical Mastery</span>
-          </h1>
-          <p className="text-lg text-white/70 leading-relaxed">
-            I'm Rishikant, a React developer who believes great code must serve great user experiences. With 6+ years of expertise, I transform business challenges into elegant digital solutions that users love and stakeholders value.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="/Rishikant_Resume.pdf"
-              download
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-purple-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
-              <Icon name="ArrowDownTrayIcon" size={20} />
-              <span>Download Resume</span>
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-gray-900 border-2 border-purple-500 text-purple-500 font-semibold rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-200">
-              <Icon name="ChatBubbleLeftRightIcon" size={20} />
-              <span>Let's Talk</span>
-            </a>
-          </div>
-        </div>
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7 space-y-6"
+          >
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-[#111a1e] border border-[#C1FF72]/30 rounded-full shadow-sm">
+              <Icon name="UserCircleIcon" size={16} className="text-[#C1FF72]" />
+              <span className="text-xs font-mono font-medium text-[#C1FF72]">About Rishikant Yadav</span>
+            </div>
+            
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              Full-Stack Developer Driven by{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C1FF72] via-[#daffaa] to-[#20c997]">
+                Precision & Quality
+              </span>
+            </h1>
 
-        <div className="relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-soft">
-            <AppImage
-              src="https://img.rocket.new/generatedImages/rocket_gen_img_1597d7b50-1763296280545.png"
-              alt="Professional portrait of Rishikant"
-              className="w-full h-[500px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-purple-700/20 to-transparent" />
-          </div>
-          <div className="absolute -bottom-6 -right-6 bg-gray-900/80 rounded-xl shadow-medium p-6 max-w-xs border border-gray-800">
-            <div className="flex items-center space-x-3">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center">
-                  <Icon name="CheckBadgeIcon" size={24} className="text-purple-500" />
+            <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl">
+              I&apos;m Rishikant Yadav, a full-stack developer with 1+ year of professional experience building scalable web applications using the MERN stack and Next.js. With a proven record of delivering production-grade features, integrating third-party APIs (like Google Search Console), and optimizing frontend performance, I bridge clean code with high-impact user experiences.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="/contact"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 bg-[#C1FF72] hover:bg-[#d4ff8f] text-[#090e11] text-sm font-bold rounded-xl shadow-lg shadow-[#C1FF72]/20 hover:shadow-[#C1FF72]/30 transition-all duration-200"
+              >
+                <Icon name="ChatBubbleLeftRightIcon" size={18} />
+                <span>Get in Touch</span>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="https://github.com/Rishi-2607"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-5 py-3.5 bg-[#111a1e] hover:bg-[#182428] border border-white/10 text-white text-sm font-semibold rounded-xl transition-all duration-200"
+              >
+                <Icon name="CodeBracketIcon" size={18} className="text-[#C1FF72]" />
+                <span>GitHub Profile</span>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="https://linkedin.com/in/rishikant-yadav"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-5 py-3.5 bg-[#111a1e] hover:bg-[#182428] border border-white/10 text-white text-sm font-semibold rounded-xl transition-all duration-200"
+              >
+                <Icon name="BriefcaseIcon" size={18} className="text-[#C1FF72]" />
+                <span>LinkedIn</span>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden glass-card border border-white/[0.1] shadow-2xl">
+              <AppImage
+                src="https://img.rocket.new/generatedImages/rocket_gen_img_1597d7b50-1763296280545.png"
+                alt="Portrait of Rishikant Yadav"
+                className="w-full h-[420px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#090e11] via-transparent to-transparent" />
+              
+              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#111a1e]/95 backdrop-blur-md rounded-xl border border-white/[0.08] flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-bold text-white">Rishikant Yadav</p>
+                  <p className="text-xs text-[#C1FF72] font-mono">React Developer @ Girl Power Talk</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#C1FF72]/15 text-[#C1FF72] border border-[#C1FF72]/30 font-semibold">
+                    B.Tech CSE &apos;24
+                  </span>
                 </div>
               </div>
-              <div>
-                <p className="text-2xl font-bold text-white">50+</p>
-                <p className="text-sm text-white/70">Projects Delivered</p>
-              </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Value Propositions */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#090e11] border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+              Core Engineering Philosophy
+            </h2>
+            <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
+              Focused on scalable web architecture, clean code, responsive design, and user-centric development.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {valuePropositions.map((prop, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-10 h-10 bg-[#C1FF72]/10 border border-[#C1FF72]/20 rounded-xl flex items-center justify-center mb-4">
+                    <Icon name={prop.icon as any} size={20} className="text-[#C1FF72]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2">{prop.title}</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{prop.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Value Propositions */}
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-gray-900">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Why Work With Me</h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            I'm not just a developer - I'm a strategic partner who understands that great code must serve great user experiences and business goals.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {valuePropositions.map((prop, index) => (
-            <div
-              key={index}
-              className="bg-gray-900/70 rounded-2xl p-6 border border-gray-800 shadow-soft hover:border-purple-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
-                <Icon name={prop.icon as any} size={24} className="text-purple-500" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">{prop.title}</h3>
-              <p className="text-white/70 leading-relaxed">{prop.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Interactive Tabs Section */}
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-gray-950/50">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-wrap gap-4 mb-12 justify-center">
-          {(['journey', 'skills', 'achievements', 'network'] as const).map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                activeTab === tab
-                  ? 'bg-purple-500 text-white shadow-lg'
-                  : 'bg-gray-900 text-white/70 hover:bg-gray-800'
-              }`}
-            >
-              <span className="flex items-center space-x-2">
-                <Icon
-                  name={
-                    tab === 'journey'
-                      ? 'MapIcon'
+      {/* Interactive Tabs Section */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#090e11] border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          {/* Tab Selector */}
+          <div className="flex flex-wrap gap-2 mb-10 justify-center">
+            {(['journey', 'skills', 'achievements', 'network'] as const).map((tab) => (
+              <motion.button
+                key={tab}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setActiveTab(tab)}
+                className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+                  activeTab === tab
+                    ? 'bg-[#C1FF72] text-[#090e11] font-bold shadow-lg shadow-[#C1FF72]/20 border border-[#C1FF72]'
+                    : 'bg-[#111a1e] text-zinc-400 hover:text-white hover:bg-[#182428] border border-white/[0.06]'
+                }`}
+              >
+                <span className="flex items-center space-x-2">
+                  <Icon
+                    name={
+                      tab === 'journey'
+                        ? 'MapIcon'
+                        : tab === 'skills'
+                        ? 'ChartBarIcon'
+                        : tab === 'achievements'
+                        ? 'TrophyIcon'
+                        : 'UserGroupIcon'
+                    }
+                    size={16}
+                  />
+                  <span>
+                    {tab === 'journey'
+                      ? 'Experience & Journey'
                       : tab === 'skills'
-                      ? 'ChartBarIcon'
+                      ? 'Skills Breakdown'
                       : tab === 'achievements'
-                      ? 'TrophyIcon'
-                      : 'UserGroupIcon'
-                  }
-                  size={20}
-                />
-                <span>
-                  {tab === 'journey'
-                    ? 'My Journey'
-                    : tab === 'skills'
-                    ? 'Skills Progression'
-                    : tab === 'achievements'
-                    ? 'Achievements'
-                    : 'Network'}
+                      ? 'Verified Milestones'
+                      : 'Professional Collaborations'}
+                  </span>
                 </span>
-              </span>
-            </button>
-          ))}
-        </div>
+              </motion.button>
+            ))}
+          </div>
 
-        <div className="bg-gray-900/70 rounded-2xl shadow-soft p-8 lg:p-12 border border-gray-800">
-          {activeTab === 'journey' && <JourneyTimeline milestones={milestones} />}
-          {activeTab === 'skills' && <SkillsProgression skills={skills} />}
-          {activeTab === 'achievements' && <AchievementBadges achievements={achievements} />}
-          {activeTab === 'network' && <ProfessionalNetwork connections={networkConnections} />}
-        </div>
-      </div>
-    </section>
-
-    {/* CTA Section */}
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-12 shadow-lg">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Digital Presence?
-          </h2>
-          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss how my React expertise can help you build exceptional user experiences that drive real business results.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="/contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-white text-purple-500 font-bold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Icon name="RocketLaunchIcon" size={24} />
-              <span>Start Your Project</span>
-            </a>
-            <a
-              href="/portfolio"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-purple-500 transition-all duration-200"
-            >
-              <Icon name="EyeIcon" size={24} />
-              <span>View My Work</span>
-            </a>
+          <div className="glass-card rounded-2xl p-6 sm:p-10 border border-white/[0.08] min-h-[400px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {activeTab === 'journey' && <JourneyTimeline milestones={milestones} />}
+                {activeTab === 'skills' && <SkillsProgression skills={skills} />}
+                {activeTab === 'achievements' && <AchievementBadges achievements={achievements} />}
+                {activeTab === 'network' && <ProfessionalNetwork connections={networkConnections} />}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
-      </div>
-    </section>
-
-    {/* Footer */}
-    <footer className="w-full px-4 sm:px-6 lg:px-8 py-12 bg-gray-950 text-white/80">
-      <div className="max-w-7xl mx-auto text-center">
-        <p className="text-sm opacity-80">
-          &copy; {new Date().getFullYear()} Rishikant. All rights reserved. Built with React & Next.js
-        </p>
-      </div>
-    </footer>
-  </main>
-);
-
+      </section>
+    </main>
+  );
 }

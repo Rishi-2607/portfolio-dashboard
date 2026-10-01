@@ -31,7 +31,7 @@ const quickActions: QuickAction[] = [
     title: 'Quick Question?',
     description: 'Have a quick question? Send me a direct message for faster response times.',
     buttonText: 'Send Message',
-    buttonHref: 'mailto:rishikant.dev@example.com',
+    buttonHref: 'mailto:rishikyadav2607@gmail.com',
     variant: 'accent',
   },
 ];
@@ -40,39 +40,39 @@ const QuickActions = () => {
   const getVariantStyles = (variant: string) => {
     switch (variant) {
       case 'primary':
-        return 'bg-gray-800/30 border-purple-500/30 hover:border-purple-500/50';
+        return 'bg-[#111a1e] border-white/10 hover:border-[#C1FF72]/40 shadow-sm';
       case 'secondary':
-        return 'bg-gray-800/30 border-pink-500/30 hover:border-pink-500/50';
+        return 'bg-[#111a1e] border-white/10 hover:border-[#20c997]/40 shadow-sm';
       case 'accent':
-        return 'bg-gray-800/30 border-green-500/30 hover:border-green-500/50';
+        return 'bg-[#111a1e] border-white/10 hover:border-[#C1FF72]/40 shadow-sm';
       default:
-        return 'bg-gray-800 border-gray-700 hover:border-purple-500/40';
+        return 'bg-[#111a1e] border-white/10 hover:border-[#C1FF72]/40 shadow-sm';
     }
   };
 
   const getButtonStyles = (variant: string) => {
     switch (variant) {
       case 'primary':
-        return 'bg-purple-600 text-white hover:bg-purple-700';
+        return 'bg-[#C1FF72] text-[#090e11] font-bold hover:bg-[#d4ff8f] shadow-md shadow-[#C1FF72]/20';
       case 'secondary':
-        return 'bg-pink-600 text-white hover:bg-pink-700';
+        return 'bg-[#20c997] text-[#090e11] font-bold hover:bg-[#34d399] shadow-md shadow-[#20c997]/20';
       case 'accent':
-        return 'bg-green-500 text-white hover:bg-green-600';
+        return 'bg-[#182428] text-white hover:text-[#090e11] hover:bg-[#C1FF72] border border-white/10 font-bold';
       default:
-        return 'bg-purple-600 text-white hover:bg-purple-700';
+        return 'bg-[#C1FF72] text-[#090e11] font-bold hover:bg-[#d4ff8f] shadow-md shadow-[#C1FF72]/20';
     }
   };
 
   const getIconColor = (variant: string) => {
     switch (variant) {
       case 'primary':
-        return 'text-purple-400';
+        return 'text-[#C1FF72]';
       case 'secondary':
-        return 'text-pink-400';
+        return 'text-[#20c997]';
       case 'accent':
-        return 'text-green-400';
+        return 'text-[#C1FF72]';
       default:
-        return 'text-purple-400';
+        return 'text-[#C1FF72]';
     }
   };
 
@@ -91,13 +91,13 @@ const QuickActions = () => {
         {quickActions.map((action) => (
           <div
             key={action.title}
-            className={`p-6 rounded-xl border transition-all duration-200 ${getVariantStyles(
+            className={`p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${getVariantStyles(
               action.variant
-            )} bg-gray-900`}
+            )} bg-[#111a1e]`}
           >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
                   <Icon
                     name={action.icon as any}
                     size={24}

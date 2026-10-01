@@ -30,19 +30,19 @@ export default function ServiceComparison({ className = '' }: ServiceComparisonP
   const renderValue = (value: boolean | string) => {
     if (typeof value === 'boolean') {
       return value ? (
-        <Icon name="CheckIcon" size={20} className="text-purple-400" />
+        <Icon name="CheckIcon" size={20} className="text-[#C1FF72]" />
       ) : (
-        <Icon name="XMarkIcon" size={20} className="text-error/50" />
+        <Icon name="XMarkIcon" size={20} className="text-white/30" />
       );
     }
     return <span className="text-white text-sm font-medium">{value}</span>;
   };
 
   return (
-    <div className="bg-gray-900/70 rounded-2xl shadow-soft overflow-hidden border border-gray-800">
-      <div className="bg-gradient-to-r from-purple-600 to-pink-500 p-6 sm:p-8">
-        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Service Packages</h3>
-        <p className="text-white/80">Compare features and choose the right package for your needs</p>
+    <div className="bg-[#111a1e] rounded-2xl shadow-soft overflow-hidden border border-white/10">
+      <div className="bg-[#182428] border-b border-white/10 p-6 sm:p-8">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Service <span className="text-[#C1FF72]">Packages</span></h3>
+        <p className="text-gray-300">Compare features and choose the right package for your needs</p>
       </div>
 
       <div className="overflow-x-auto">

@@ -6,26 +6,28 @@ import QuickActions from './components/QuickActions';
 import FAQSection from './components/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Contact - Rishikant Portfolio',
+  title: 'Contact - Rishikant Yadav | Full-Stack & Next.js Developer',
   description:
-    'Get in touch to discuss your React development project. Multiple contact options including project inquiry forms, consultation booking, and direct communication for streamlined client acquisition.',
+    'Get in touch with Rishikant Yadav to discuss full-stack web applications, React component engineering, REST API integrations, or collaboration opportunities.',
 };
 
 export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-900 pt-16">
+      <main className="min-h-screen bg-[#090e11] pt-16">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Let&apos;s Work Together
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-[#111a1e] border border-[#C1FF72]/30 rounded-full shadow-sm mb-4">
+                <span className="text-xs font-mono font-medium text-[#C1FF72]">Get in Touch</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                Let&apos;s Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C1FF72] via-[#daffaa] to-[#20c997]">Together</span>
               </h1>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Ready to transform your digital presence with React expertise?
-                Choose your preferred way to connect and let&apos;s start building
-                something amazing.
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                Ready to build scalable web applications with MERN and Next.js?
+                Reach out directly via the form or email to start the conversation.
               </p>
             </div>
 
@@ -43,25 +45,23 @@ export default function ContactPage() {
               <FAQSection />
             </div>
 
-            <div className="bg-gradient-to-br from-purple-600 to-pink-500 rounded-2xl p-8 md:p-12 text-center">
+            <div className="bg-[#182428] rounded-2xl p-8 md:p-12 text-center border border-[#C1FF72]/30 shadow-[0_0_35px_rgba(193,255,114,0.15)]">
               <h2 className="text-3xl font-bold text-white mb-4">
                 Ready to Start Your Project?
               </h2>
-              <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-                Join the growing list of satisfied clients who have transformed
-                their digital presence with professional React development and
-                UI-focused engineering.
+              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                Let&apos;s discuss how clean code, responsive design, and production-tested full-stack engineering can elevate your web platform.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="#contact-form"
-                  className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg shadow-lg hover:shadow-purple-700 hover:-translate-y-0.5 transition-all duration-200 ease-out"
+                  className="px-8 py-4 bg-[#C1FF72] hover:bg-[#d4ff8f] text-[#090e11] font-bold rounded-xl shadow-lg shadow-[#C1FF72]/20 hover:-translate-y-0.5 transition-all duration-200 ease-out"
                 >
                   Submit Project Inquiry
                 </a>
                 <a
-                  href="mailto:rishi7king@gmail.com"
-                  className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-200"
+                  href="mailto:rishikyadav2607@gmail.com"
+                  className="px-8 py-4 bg-white/5 border border-white/15 hover:border-[#C1FF72]/50 text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-200"
                 >
                   Email Directly
                 </a>
@@ -70,39 +70,39 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <footer className="bg-gray-800 border-t border-gray-700 py-8">
+        <footer className="bg-[#111a1e] border-t border-white/10 py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
               <div className="text-center md:text-left">
                 <p className="text-sm text-gray-400">
-                  &copy; {new Date().getFullYear()} Rishikant. All rights
+                  &copy; {new Date().getFullYear()} Rishikant Yadav. All rights
                   reserved.
                 </p>
               </div>
               <div className="flex items-center space-x-6">
                 <a
                   href="/homepage"
-                  className="text-sm text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                  className="text-sm text-gray-400 hover:text-[#C1FF72] transition-colors duration-200"
                 >
                   Home
                 </a>
                 <a
                   href="/about"
-                  className="text-sm text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                  className="text-sm text-gray-400 hover:text-[#C1FF72] transition-colors duration-200"
                 >
                   About
                 </a>
                 <a
                   href="/portfolio"
-                  className="text-sm text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                  className="text-sm text-gray-400 hover:text-[#C1FF72] transition-colors duration-200"
                 >
                   Portfolio
                 </a>
                 <a
-                  href="/services"
-                  className="text-sm text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                  href="/skills"
+                  className="text-sm text-gray-400 hover:text-[#C1FF72] transition-colors duration-200"
                 >
-                  Services
+                  Skills
                 </a>
               </div>
             </div>

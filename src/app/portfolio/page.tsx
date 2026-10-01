@@ -3,14 +3,14 @@ import Header from '@/components/common/Header';
 import PortfolioInteractive from './components/PortfolioInteractive';
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Rishikant',
+  title: 'Portfolio - Rishikant Yadav | Full-Stack & Next.js Developer',
   description:
-    'Explore my portfolio of React development projects featuring e-commerce platforms, healthcare solutions, SaaS dashboards, and more. View detailed case studies with technical implementations and measurable business results.',
+    'Explore production projects built by Rishikant Yadav, including full-stack Next.js platforms, real-time Socket.io applications, healthcare systems, and enterprise tools.',
 };
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-[#090e11] text-white">
       {/* Header */}
       <Header />
 
@@ -30,25 +30,25 @@ export default function PortfolioPage() {
             </p>
 
             {/* Accent divider */}
-            <div className="mt-6 h-1 w-24 bg-gradient-to-r from-purple-600 to-pink-500 mx-auto rounded-full"></div>
+            <div className="mt-6 h-1 w-24 bg-gradient-to-r from-[#C1FF72] to-[#20c997] mx-auto rounded-full shadow-[0_0_12px_rgba(193,255,114,0.4)]"></div>
           </div>
 
           {/* Interactive Portfolio */}
-          <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 sm:p-10 shadow-xl shadow-black/40 backdrop-blur-md">
+          <div className="bg-[#111a1e]/80 border border-white/10 rounded-2xl p-6 sm:p-10 shadow-xl shadow-black/40 backdrop-blur-md">
             <PortfolioInteractive />
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900/50 border-t border-gray-800 py-10 px-4 sm:px-6 lg:px-8 backdrop-blur">
+      <footer className="bg-[#111a1e]/90 border-t border-white/10 py-10 px-4 sm:px-6 lg:px-8 backdrop-blur">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-white/60 text-sm tracking-wide">
             &copy; {new Date().getFullYear()} Rishikant • All Rights Reserved
           </p>
 
           {/* Footer glow line */}
-          <div className="mt-4 h-[2px] w-32 mx-auto bg-gradient-to-r from-purple-600 to-pink-500 rounded-full opacity-70"></div>
+          <div className="mt-4 h-[2px] w-32 mx-auto bg-gradient-to-r from-[#C1FF72] to-[#20c997] rounded-full opacity-70 shadow-[0_0_8px_rgba(193,255,114,0.4)]"></div>
         </div>
       </footer>
     </div>

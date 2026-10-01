@@ -33,7 +33,7 @@ export default function FilterBar({
   return (
     <div className="
       rounded-2xl p-6 mb-8
-      bg-gradient-to-b from-gray-900 via-gray-950 to-black
+      bg-[#111a1e]
       border border-white/10
       shadow-[0_0_25px_rgba(0,0,0,0.4)]
       backdrop-blur-md
@@ -60,7 +60,7 @@ export default function FilterBar({
                 relative z-10 w-full pl-10 pr-4 py-2.5 rounded-lg
                 bg-white/5 border border-white/10
                 text-gray-100 placeholder:text-gray-400
-                focus:ring-2 focus:ring-purple-500 focus:border-transparent
+                focus:ring-2 focus:ring-[#C1FF72] focus:border-transparent
                 transition-all
               "
             />
@@ -83,13 +83,13 @@ export default function FilterBar({
               onChange={(e) => onCategoryChange(e.target.value)}
               className="
                 relative z-10 w-full pl-10 pr-10 py-2.5 rounded-lg
-                bg-white/5 border border-white/10 text-gray-100
-                focus:ring-2 focus:ring-purple-500 focus:border-transparent
+                bg-[#182428] border border-white/10 text-gray-100
+                focus:ring-2 focus:ring-[#C1FF72] focus:border-transparent
                 transition-all appearance-none
               "
             >
               {categories.map((category) => (
-                <option key={category} value={category} className="bg-gray-900">
+                <option key={category} value={category} className="bg-[#111a1e]">
                   {category}
                 </option>
               ))}
@@ -118,13 +118,13 @@ export default function FilterBar({
               onChange={(e) => onTechnologyChange(e.target.value)}
               className="
                 relative z-10 w-full pl-10 pr-10 py-2.5 rounded-lg
-                bg-white/5 border border-white/10 text-gray-100
-                focus:ring-2 focus:ring-purple-500 focus:border-transparent
+                bg-[#182428] border border-white/10 text-gray-100
+                focus:ring-2 focus:ring-[#C1FF72] focus:border-transparent
                 transition-all appearance-none
               "
             >
               {technologies.map((tech) => (
-                <option key={tech} value={tech} className="bg-gray-900">
+                <option key={tech} value={tech} className="bg-[#111a1e]">
                   {tech}
                 </option>
               ))}
@@ -146,7 +146,7 @@ export default function FilterBar({
                 relative z-10 flex items-center gap-2 px-4 py-2.5
                 bg-white/5 border border-white/10
                 text-gray-100 rounded-lg
-                hover:bg-white/10 hover:border-purple-500/40
+                hover:bg-white/10 hover:border-[#C1FF72]/40 hover:text-[#C1FF72]
                 transition-all shadow-sm
               "
             >

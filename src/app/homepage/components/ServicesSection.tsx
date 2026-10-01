@@ -5,6 +5,7 @@ interface Service {
   id: number;
   icon: string;
   title: string;
+  tag: string;
   description: string;
   features: string[];
 }
@@ -14,125 +15,138 @@ const ServicesSection = () => {
     {
       id: 1,
       icon: "CodeBracketIcon",
-      title: "React Development",
-      description: "Custom React applications built with modern best practices and scalable architecture",
-      features: ["Component Architecture", "State Management", "Performance Optimization", "Testing & QA"]
+      title: "Full-Stack Web Development",
+      tag: "MERN + Next.js",
+      description: "End-to-end production web applications with server-side rendering, robust RESTful APIs, and scalable MongoDB schemas.",
+      features: ["Next.js & React Architecture", "Express & Node.js Backend", "MongoDB Atlas Integration", "Production Cloud Deployment"]
     },
     {
       id: 2,
       icon: "DevicePhoneMobileIcon",
-      title: "UI/UX Implementation",
-      description: "Pixel-perfect interfaces that deliver exceptional user experiences across all devices",
-      features: ["Responsive Design", "Accessibility", "Animation & Interactions", "Design Systems"]
+      title: "React UI & Component Libraries",
+      tag: "Frontend",
+      description: "Reusable, accessible React UI component libraries built for design consistency, high responsiveness, and cross-device performance.",
+      features: ["Component Systems & Design Tokens", "Tailwind CSS & Mobile-First", "Accessibility & Semantic HTML", "Smooth Micro-Interactions"]
     },
     {
       id: 3,
-      icon: "RocketLaunchIcon",
-      title: "Web Application Development",
-      description: "Full-stack web solutions using Next.js and modern JavaScript frameworks",
-      features: ["Next.js Apps", "API Integration", "Database Design", "Deployment & Hosting"]
+      icon: "BoltIcon",
+      title: "Real-Time & WebSocket Apps",
+      tag: "Live Data",
+      description: "Bidirectional real-time communication systems featuring instant message delivery, live alerts, and active user presence tracking.",
+      features: ["Socket.io Architecture", "Instant Message Synchronization", "Active User Status Tracking", "Optimistic State Updates"]
     },
     {
       id: 4,
-      icon: "ArrowPathIcon",
-      title: "Code Refactoring",
-      description: "Transform legacy codebases into maintainable, performant modern applications",
-      features: ["Code Modernization", "Performance Tuning", "Technical Debt Reduction", "Documentation"]
+      icon: "CloudIcon",
+      title: "REST API Integration & Automation",
+      tag: "APIs & Tools",
+      description: "Custom REST APIs and automated third-party integrations (like Google Search Console automation and HRMS platforms).",
+      features: ["Third-Party API Integrations", "Automated Service Account Flows", "Clean Modular REST Endpoints", "Postman Verified Endpoints"]
     },
     {
       id: 5,
       icon: "ShieldCheckIcon",
-      title: "Maintenance & Support",
-      description: "Ongoing support and updates to keep your applications running smoothly",
-      features: ["Bug Fixes", "Security Updates", "Feature Enhancements", "Technical Consulting"]
+      title: "Authentication & Security",
+      tag: "Security",
+      description: "Robust security practices including JWT-based token authorization, bcrypt credential hashing, and role-based access control.",
+      features: ["JWT Token Flow Management", "Bcrypt Password Encryption", "Role-Based Route Protection", "Environment Secret Isolation"]
     },
     {
       id: 6,
-      icon: "AcademicCapIcon",
-      title: "Technical Consulting",
-      description: "Expert guidance on architecture decisions, technology stack, and best practices",
-      features: ["Architecture Review", "Technology Selection", "Code Review", "Team Training"]
+      icon: "ArrowPathIcon",
+      title: "Performance & SEO Optimization",
+      tag: "Optimization",
+      description: "SSR-driven SEO architecture, optimized image delivery, code-splitting, and rigorous testing for high user engagement and low error rates.",
+      features: ["SSR & Metadata Generation", "Core Web Vitals Optimization", "Frontend Performance Audits", "Error Reduction & Clean Code"]
     }
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black overflow-hidden">
-      {/* Floating gradient shapes */}
-      <div className="absolute top-0 left-1/3 w-72 h-72 bg-purple-700 rounded-full filter blur-3xl opacity-20 mix-blend-color-dodge -translate-x-1/2 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-pink-600 rounded-full filter blur-3xl opacity-20 mix-blend-color-dodge translate-x-1/4 translate-y-1/3"></div>
+    <section className="relative py-24 bg-[#090e11] overflow-hidden">
+      {/* Background ambient glows */}
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#C1FF72]/8 rounded-full filter blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#20c997]/8 rounded-full filter blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-purple-700/20 rounded-full mb-4">
-            <Icon name="WrenchScrewdriverIcon" size={20} className="text-purple-400 mr-2" />
-            <span className="text-sm font-semibold text-purple-300">Services</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111a1e] border border-[#C1FF72]/30 mb-4 shadow-sm">
+            <Icon name="WrenchScrewdriverIcon" size={16} className="text-[#C1FF72]" />
+            <span className="text-xs font-mono font-medium text-[#C1FF72]">Engineering Solutions</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Comprehensive Development Solutions
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Production-Grade Full-Stack Capabilities
           </h2>
 
-          <p className="text-lg text-white/70 max-w-3xl mx-auto">
-            From concept to deployment, I provide end-to-end development services that transform your vision into reality with measurable business impact.
+          <p className="text-base sm:text-lg text-[#94a3a8] max-w-2xl mx-auto">
+            From modern React interfaces to reliable REST APIs and real-time WebSockets, I deliver scalable, production-ready web applications.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <div
               key={service.id}
-              className="group bg-gray-900/70 rounded-2xl p-8 border border-gray-800 hover:border-purple-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group glass-card glass-card-hover rounded-2xl p-7 flex flex-col justify-between"
             >
-              <div className="w-14 h-14 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500 group-hover:scale-110 transition-all duration-300">
-                <Icon
-                  name={service.icon as any}
-                  size={28}
-                  className="text-purple-500 group-hover:text-white transition-colors duration-300"
-                />
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-500 transition-colors duration-300">
-                {service.title}
-              </h3>
-
-              <p className="text-white/70 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, index) => (
-                  <li key={index} className="flex items-start">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-[#C1FF72]/10 border border-[#C1FF72]/20 flex items-center justify-center group-hover:bg-[#C1FF72]/20 group-hover:scale-105 transition-all duration-300">
                     <Icon
-                      name="CheckCircleIcon"
-                      size={20}
-                      className="text-purple-500 mr-2 mt-0.5 flex-shrink-0"
+                      name={service.icon as any}
+                      size={22}
+                      className="text-[#C1FF72] transition-colors duration-300"
                     />
-                    <span className="text-sm text-white/70">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                  <span className="text-[11px] font-mono text-[#94a3a8] px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.08]">
+                    {service.tag}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-bold text-white mb-2.5 group-hover:text-[#C1FF72] transition-colors duration-200">
+                  {service.title}
+                </h3>
+
+                <p className="text-xs text-[#94a3a8] mb-5 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <ul className="space-y-2 mb-6">
+                  {service.features.map((feature, index) => (
+                    <li key={index} className="flex items-start text-xs text-[#f4f8fa]">
+                      <Icon
+                        name="CheckCircleIcon"
+                        size={16}
+                        className="text-[#C1FF72] mr-2 mt-0.5 flex-shrink-0"
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <Link
                 href="/services"
-                className="inline-flex items-center text-purple-500 font-semibold hover:gap-2 transition-all duration-200"
+                className="inline-flex items-center text-xs font-semibold text-[#C1FF72] hover:text-[#daffaa] transition-all duration-200 group-hover:translate-x-1"
               >
-                Learn More
-                <Icon name="ArrowRightIcon" size={16} className="ml-1" />
+                <span>View service details</span>
+                <Icon name="ArrowRightIcon" size={14} className="ml-1" />
               </Link>
             </div>
           ))}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Link */}
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className="inline-flex items-center px-8 py-4 bg-purple-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+            className="inline-flex items-center px-6 py-3 text-xs font-semibold text-white rounded-xl bg-[#111a1e] hover:bg-[#182428] border border-white/10 hover:border-[#C1FF72]/40 shadow-sm transition-all duration-200"
           >
-            View All Services
-            <Icon name="ArrowRightIcon" size={20} className="ml-2" />
+            <span>Explore Complete Services & Workflow</span>
+            <Icon name="ArrowRightIcon" size={16} className="ml-2 text-[#C1FF72]" />
           </Link>
         </div>
       </div>

@@ -11,19 +11,19 @@ const contactMethods: ContactMethod[] = [
   {
     icon: 'EnvelopeIcon',
     label: 'Email',
-    value: 'rishikant.dev@example.com',
-    href: 'mailto:rishikant.dev@example.com',
+    value: 'rishikyadav2607@gmail.com',
+    href: 'mailto:rishikyadav2607@gmail.com',
   },
   {
     icon: 'PhoneIcon',
     label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
+    value: '+91-6388067731',
+    href: 'tel:+916388067731',
   },
   {
     icon: 'MapPinIcon',
     label: 'Location',
-    value: 'San Francisco, CA',
+    value: 'Prayagraj, Uttar Pradesh, India',
     href: '#',
   },
 ];
@@ -43,12 +43,12 @@ const socialLinks: SocialLink[] = [
   {
     icon: 'BriefcaseIcon',
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/rishikant-yadav-010648283 ',
+    href: 'https://linkedin.com/in/rishikant-yadav',
   },
   {
     icon: 'ChatBubbleLeftRightIcon',
-    label: 'Replit',
-    href: 'https://replit.com/@rishi7king',
+    label: 'Email Direct',
+    href: 'mailto:rishikyadav2607@gmail.com',
   },
 ];
 
@@ -73,18 +73,18 @@ const ContactInfo = () => {
           <a
             key={method.label}
             href={method.href}
-            className="flex items-start space-x-4 p-4 rounded-2xl bg-gray-900 hover:bg-gray-800 transition-colors duration-200 group"
+            className="flex items-start space-x-4 p-4 rounded-2xl bg-[#111a1e] hover:bg-[#182428] border border-white/10 hover:border-[#C1FF72]/40 transition-all duration-200 group"
           >
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-800/20 flex items-center justify-center group-hover:bg-purple-800/40 transition-colors duration-200">
+            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#C1FF72]/15 border border-[#C1FF72]/30 flex items-center justify-center group-hover:bg-[#C1FF72]/25 transition-colors duration-200">
               <Icon
                 name={method.icon as any}
                 size={24}
-                className="text-purple-400"
+                className="text-[#C1FF72]"
               />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-gray-400 mb-1">{method.label}</p>
-              <p className="text-base font-semibold text-white group-hover:text-purple-400 transition-colors duration-200">
+              <p className="text-base font-semibold text-white group-hover:text-[#C1FF72] transition-colors duration-200">
                 {method.value}
               </p>
             </div>
@@ -101,15 +101,15 @@ const ContactInfo = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 rounded-2xl bg-gray-900 hover:bg-purple-400 hover:text-white transition-all duration-200 group"
+              className="flex items-center space-x-2 px-4 py-2 rounded-2xl bg-[#111a1e] hover:bg-[#C1FF72] hover:text-[#090e11] border border-white/10 hover:border-[#C1FF72] transition-all duration-200 group"
               aria-label={social.label}
             >
               <Icon
                 name={social.icon as any}
                 size={20}
-                className="text-purple-400 group-hover:text-white transition-colors duration-200"
+                className="text-[#C1FF72] group-hover:text-[#090e11] transition-colors duration-200"
               />
-              <span className="text-sm font-medium text-white group-hover:text-white transition-colors duration-200">
+              <span className="text-sm font-medium text-white group-hover:text-[#090e11] transition-colors duration-200">
                 {social.label}
               </span>
             </a>
@@ -117,12 +117,12 @@ const ContactInfo = () => {
         </div>
       </div>
 
-      <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-900/10 to-pink-900/10 border border-purple-800/20">
+      <div className="p-6 rounded-2xl bg-[#182428] border border-[#C1FF72]/30">
         <div className="flex items-start space-x-3">
           <Icon
             name="ClockIcon"
             size={24}
-            className="text-purple-400 flex-shrink-0 mt-1"
+            className="text-[#C1FF72] flex-shrink-0 mt-1"
           />
           <div>
             <h4 className="text-base font-semibold text-white mb-2">Response Time</h4>
